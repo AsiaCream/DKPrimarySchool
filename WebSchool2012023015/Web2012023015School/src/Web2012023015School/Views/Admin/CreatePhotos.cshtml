@@ -1,0 +1,28 @@
+﻿<form role="form" asp-action="CreatePhotos" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <h2>添加照片</h2>
+        <table class="table">
+            <tr>
+                <th>照片标题</th>
+                <td><input class="form-control" type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <th>照片路径</th>
+                <td><input class="form-control" type="text" name="Path" /></td>
+            </tr>
+            <tr>
+                <th>照片描述</th>
+                <td><textarea class="form-control" rows="3" name="Discription"></textarea></td>
+            </tr>
+            <tr>
+                <th>添加时间</th>
+                <td><input class="form-control"type="datetime"  name="Datatime" /></td>
+            </tr>
+
+        </table>
+        <p>
+            <input class="btn" type="submit" value="提交" />
+            <a asp-action="DetailsPhotos" asp-controller="Admin">取消</a>
+        </p>
+</div>
+</form>

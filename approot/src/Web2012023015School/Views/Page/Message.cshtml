@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@model IEnumerable<Message>
+<div style="margin-top:-20px;"></div>
+<div class="col-md-9">
+    <div class="container-fluid" id="accordion">
+        <div class="panel-group" id="accordion">
+            <h4><span class="label label-default">留言板</span></h4>
+             @foreach(var x in Model)
+             {
+                 @if (x.State == State.通过)
+                 {
+                    <div>
+                        <p>
+                            昵称：@x.NickName&nbsp;&nbsp;&nbsp;&nbsp;:@x.Datatime
+                        </p>
+                        <div style="width:100%;height:80px;">
+                            @x.Content
+                        </div>
+                    </div>
+                 }
+             }
+            @Html.MakePager("pager-item", "active", "pager")
+            <div>
+                <from asp-action="CreateMessage" asp-controller="Home" method="post">
+                    <table class="table">
+                            <tr>
+                                <th>昵称</th>
+                                <td><input type="text" name="NickName" /></td>
+                            </tr>
+                            <tr style="width=100%;height:80px;">
+                                <th>留言</th>
+                                <td><textarea placeholder="请输入内容" name="Cotent"></textarea></td>
+                            </tr>
+                    </table>
+                    <p><input type="submit" class="btn btn-inverse" value="留言"/></p>
+                </from>
+            </div>
+        </div>
+    </div>
+</div>
+

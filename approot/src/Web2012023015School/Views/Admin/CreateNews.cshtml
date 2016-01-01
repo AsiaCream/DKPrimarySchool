@@ -1,0 +1,35 @@
+﻿<form role="form" asp-action="CreateNews" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <h2>添加新闻</h2>
+        <table class="table">
+            <tr>
+                <th>新闻标题</th>
+                <td><input class="form-control" type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <th>新闻内容</th>
+                <td><textarea class="form-control" name="Content"></textarea></td>
+            </tr>
+            <tr>
+                <th>新闻来源</th>
+                <td>
+                    <select name="Source">
+                        <option>原创</option>
+                        <option>校园</option>
+                        <option>教师</option>
+                        <option>党支部</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>添加时间</th>
+                <td><input class="form-control" type="datetime" name="DataTime" value="@DateTime.Now"/></td>
+            </tr>
+
+        </table>
+        <p>
+            <input class="btn inverse" type="submit" value="提交" />
+            <a asp-action="DetailsNews" asp-controller="Admin">取消</a>
+        </p>
+</div>
+</form>

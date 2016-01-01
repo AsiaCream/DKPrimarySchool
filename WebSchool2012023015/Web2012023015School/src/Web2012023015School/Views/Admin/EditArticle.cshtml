@@ -1,0 +1,45 @@
+﻿@model Article
+<form role="form" asp-action="EditAriticle" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <table class="table">
+            <tr>
+                <th>文章标题</th>
+                <td><input class="form-control" type="text" name="Title" value="@Model.Title" /></td>
+            </tr>
+            <tr>
+                <th class="row-title">文章内容</th>
+                <td><textarea class="form-control" rows="3" name="Content">@Model.Content</textarea></td>
+            </tr>
+            <tr>
+                <th class="row-title">文章来源</th>
+                <td>
+                    <select name="Source" value="@Model.Source">
+                        <option>学生</option>
+                        <option>教师</option>
+                        <option>原创</option>
+                        <option>其他</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="row-title">文章类别</th>
+                <td>
+                    <select name="Source" value="@Model.Category">
+                        <option>信件</option>
+                        <option>童言</option>
+                        <option>教育</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="row-title">添加时间</th>
+                <td><input class="form-control" type="datetime" name="Datatime" value="@DateTime.Now" /></td>
+            </tr>
+        </table>
+        <p>
+            <input class="btn inverse" type="submit" value="修改" />
+            <a asp-action="DetailsArticle" asp-controller="Admin">取消</a>
+        </p>
+    </div>
+</form>

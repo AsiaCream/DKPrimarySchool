@@ -1,0 +1,23 @@
+﻿<form role="form" asp-action="Modify" asp-controller="Account" method="post">
+    <div class="form-group col-lg-4" style="margin-left:300px; margin-top:50px;">
+        <h2>修改密码</h2>
+        <table class="table">
+            <tr>
+                <th>旧密码</th>
+                <td><input class="form-control" type="password" name="currentpwd" /></td>
+            </tr>
+            <tr>
+                <th>新密码</th>
+                <td><input class="form-control" type="password" name="newpwd" /></td>
+            </tr>
+            <tr>
+                <th>再次输入新密码</th>
+                <td><input class="form-control" type="password" name="confirmpwd" /></td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" class="btn" value="提交" />
+            <a asp-action="Index" asp-controller="Home">取消</a>
+        </p>
+    </div>
+</form>

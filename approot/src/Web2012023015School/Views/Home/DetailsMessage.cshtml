@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Message>
+<h2>留言板审核页面</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>编号：</th>
+            <th>昵称：</th>
+            <th>发布时间：</th>
+            <th>发布内容：</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.NickName</td>
+                <td>@x.Datatime</td>
+                <td>@x.Content</td>
+                <td>
+                    <a asp-action="DeleteMessage" asp-controller="Home" asp-route-id="@x.Id">删除</a>
+                    <a asp-action="AgreeMessage" asp-controller="Home" asp-route-id="@x.Id">通过审核</a>
+                </td>
+            </tr>
+        }       
+    </tbody>
+</table>

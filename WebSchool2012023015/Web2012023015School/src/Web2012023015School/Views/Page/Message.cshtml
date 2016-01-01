@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@model IEnumerable<Message>
+<head>
+    <script type="text/javascript" src="~/scripts/jquery-1.10.2.min.js"></script>
+</head>
+<div style="margin-top:-20px;"></div>
+<div class="col-md-9">
+    <div class="container-fluid" id="accordion">
+        <div class="panel-group" id="accordion">
+            <h4><span class="label label-default">留言板</span></h4>
+             @foreach(var x in Model)
+             {
+                 @if (x.State == State.通过)
+                 {
+                    <table class="table">
+                        <tr>
+                            <th>发布时间：</th>
+                            <th>@x.Datatime</th>
+                        </tr>
+                        <tr>
+                            <th>昵称：</th>
+                            <th>@x.NickName</th>
+                        </tr>
+                        <tr>
+                            <th>发布内容：</th>
+                            <td>
+                                @x.Content
+                            </td>
+                        </tr>
+                    </table>
+                 }
+             }
+@Html.MakePager("pager-item", "active", "pager")
+            <div style="height:40px;"></div>
+            <div>
+                <form asp-action="CreateMessage" asp-controller="Home" method="post">
+                    <table class="table">
+                            <tr>
+                                <th>昵称</th>
+                                <td><input type="text" name="NickName" id="NickName"/><label id="NickNameLabel" style="display:none;">昵称不能为空</label></td>
+                            </tr>
+                            <tr style="width:100%;height:80px;">
+                                <th>留言</th>
+                                <td><textarea placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;"></textarea></td>
+                            </tr>
+                    </table>
+                    <p><input type="submit" class="btn" id="btnCreateMessage" value="留言"/></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+        $("#btnCreateMessage").click(function () {
+            alert("提交成功，等待管理员审核通过后即可显示");
+        });
+</script>
+
+

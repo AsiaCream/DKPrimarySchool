@@ -1,0 +1,25 @@
+﻿<form role="form" asp-action="CreateSchoolInfo" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <h2>添加学校信息</h2>
+        <table class="table">
+            <tr>
+                <th>信息标题</th>
+                <td><input class="form-control" type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <th>信息内容</th>
+                <td><textarea class="form-control" name="Content"></textarea></td>
+            </tr>
+
+            <tr>
+                <th>添加时间</th>
+                <td><input class="form-control" rows="3" type="datetime" name="Datatime" /></td>
+            </tr>
+
+        </table>
+        <p>
+            <input class="btn" type="submit" value="提交" />
+            <a asp-action="Index" asp-controller="Home">取消</a>
+        </p>
+        </div>
+</form>

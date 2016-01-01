@@ -1,0 +1,24 @@
+﻿@model SchoolInfo
+<form role="form" asp-action="EditSchoolInfo" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <table class="table">
+            <tr>
+                <th>信息标题</th>
+                <td><input type="text" name="Title" value="@Model.Title" /></td>
+            </tr>
+            <tr>
+                <th>信息内容</th>
+                <td><textarea class="form-control" rows="3" name="Content">@Model.Content</textarea></td>
+            </tr>
+            <tr>
+                <th>添加时间</th>
+                <td><input class="form-control" type="datetime" name="Datatime" value="@DateTime.Now" /></td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="修改" />
+            <a asp-action="Manage" asp-controller="Home">取消</a>
+        </p>
+        </div>
+</form>

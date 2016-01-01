@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CodeComb.AspNet.Extensions</id>
+    <version>2.0.0-beta8</version>
+    <title>CodeComb.AspNet.Extensions</title>
+    <authors>AmamiyaYuuko</authors>
+    <owners>AmamiyaYuuko</owners>
+    <projectUrl>https://github.com/CodeComb/Extensions</projectUrl>
+    <iconUrl>http://www.1234.sh/images/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ASP.Net vNext Extensions</description>
+    <copyright>Harbin Code Comb Technology Co.,Ltd</copyright>
+    <tags>vNext ASP.Net MVC</tags>
+    <dependencies>
+      <group targetFramework="DNX4.5.1">
+        <dependency id="Microsoft.Framework.Configuration.Json" version="1.0.0-beta8" />
+        <dependency id="Microsoft.AspNet.Mvc" version="6.0.0-beta8" />
+        <dependency id="Microsoft.AspNet.Identity.EntityFramework" version="3.0.0-beta8" />
+      </group>
+      <group targetFramework="DNXCore5.0">
+        <dependency id="Microsoft.Framework.Configuration.Json" version="1.0.0-beta8" />
+        <dependency id="Microsoft.AspNet.Mvc" version="6.0.0-beta8" />
+        <dependency id="Microsoft.AspNet.Identity.EntityFramework" version="3.0.0-beta8" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="System" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="DNX4.5.1" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

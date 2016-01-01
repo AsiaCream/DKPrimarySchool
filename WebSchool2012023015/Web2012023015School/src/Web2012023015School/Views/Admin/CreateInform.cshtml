@@ -1,0 +1,25 @@
+﻿<form role="form" asp-action="CreateInform" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <h2>添加通知公告</h2>
+        <table class="table">
+            <tr>
+                <th>通知公告标题</th>
+                <td><input class="form-control" type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <th>通知内容</th>
+                <td><textarea class="form-control" rows="3" name="Content"></textarea></td>
+            </tr>
+
+            <tr>
+                <th>添加时间</th>
+                <td><input class="form-control" type="datetime" name="Datatime" /></td>
+            </tr>
+
+        </table>
+        <p>
+            <input class="btn" type="submit" value="提交" />
+            <a asp-action="DetailsInform" asp-controller="Admin">取消</a>
+        </p>
+        </div>
+</form>
