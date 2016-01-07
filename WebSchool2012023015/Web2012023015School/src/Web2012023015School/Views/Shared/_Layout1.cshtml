@@ -23,6 +23,22 @@
     <![endif]-->
     <!-- Custom styles for this template -->
     <link href="~/styles/carousel.css" rel="stylesheet">
+    <style type="text/css">
+        .row-content h3 {
+            color: #ddd;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 16px;
+            margin: 34px 0 34px 40px;
+        }
+
+        .row-content ul {
+            font-size: 13px;
+            line-height: 24px;
+            list-style: none;
+            margin-bottom: 90px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -152,8 +168,62 @@
         </div>
     </div> 
     <!-- FOOTER -->
-    <footer class="text-center">  
-        <p>&copy;CopyRight By 贵港市达开实验小学. &middot;<a asp-action="Login" asp-controller="Account">后台登陆管理</a></p>
-    </footer>
+    <footer class="container-fluid" style="background-color:#373f48;">
+        <!--采用container，使得页尾内容居中 -->
+        <div class="container">
+            <div class="row">
+                <div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>校园风光</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+                <div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>校园新闻</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+                <div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>师生文章</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+                <div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>招生信息</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+                <div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>通知公告</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div><div class="row-content col-lg-2 col-sm-4 col-xs-6">
+                    <h3>留言板</h3>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                    </ul>
+                </div>
+            </div><!--/.row -->
+        </div><!--/.container-->
+    </footer> 
+    <p align="center" style="height:60px;line-height:60px;color:white;background-color:rgb(35,35,35);margin:0px;">
+        &copy;Copyright 贵港市达开实验小学 <a asp-action="Login" asp-controller="Account">后台登陆管理</a>
+    </p>
 </body>
 </html>

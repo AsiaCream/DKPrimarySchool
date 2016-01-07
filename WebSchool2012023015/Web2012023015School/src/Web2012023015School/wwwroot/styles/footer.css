@@ -1,0 +1,19 @@
+﻿.social{
+margin:0;
+padding:0;
+width:100%;
+text-align:center;
+.social li{
+    display: inline-block;
+}
+.social li a {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 36px;
+    color: #fff;
+    margin: 0 3px 3px 0;
+}
+.social li a:hover{
+		text-decoration:none;
+}
