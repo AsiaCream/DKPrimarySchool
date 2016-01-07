@@ -32,15 +32,16 @@
                         <option>信件</option>
                         <option>童言</option>
                         <option>教育</option>
+                        <option>作文</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <th>添加时间</th>
-                <td><input class="form-control" type="datetime" name="DataTime" value="@DateTime.Now" /></td>
+                @*<th>添加时间</th>*@
+                <td><input class="form-control" type="hidden" name="DataTime" value="@DateTime.Now" /></td>
             </tr>
             <tr>
-                <th>点击量</th>
+                @*<th>点击量</th>*@
                 <td><input class="form-control" type="hidden" name="Clickonthequantity" value="0" /></td>
             </tr>
 

@@ -12,12 +12,12 @@
                 <td><textarea class="form-control" rows="3" name="Content">@Model.Content</textarea></td>
             </tr>
             <tr>
-                <th>添加时间</th>
-                <td><input class="form-control" type="datetime" name="Datatime" value="@DateTime.Now" /></td>
+                @*<th>添加时间</th>*@
+                <td><input class="form-control" type="hidden" name="Datatime" value="@DateTime.Now" /></td>
             </tr>
         </table>
         <p>
-            <input type="submit" value="修改" />
+            <input type="submit" value="修改" class="btn"/>
             <a asp-action="Manage" asp-controller="Home">取消</a>
         </p>
 </div>

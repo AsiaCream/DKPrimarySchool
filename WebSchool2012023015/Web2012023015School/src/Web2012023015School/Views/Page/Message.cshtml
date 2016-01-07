@@ -6,7 +6,7 @@
     <script type="text/javascript" src="~/scripts/jquery-1.10.2.min.js"></script>
 </head>
 <div style="margin-top:-20px;"></div>
-<div class="col-md-9">
+<div class="col-md-9" style="background-color:rgb(245,245,245);border-radius:8px;">
     <div class="container-fluid" id="accordion">
         <div class="panel-group" id="accordion">
             <h4><span class="label label-default">留言板</span></h4>
@@ -14,20 +14,14 @@
              {
                  @if (x.State == State.通过)
                  {
-                    <table class="table">
-                        <tr>
-                            <th>发布时间：</th>
-                            <th>@x.Datatime</th>
-                        </tr>
+                    <table class="table" style="background-color:rgb(245,245,245);">
                         <tr>
                             <th>昵称：</th>
-                            <th>@x.NickName</th>
+                            <td><input type="text" value="@x.NickName" disabled="disabled" /></td>
                         </tr>
                         <tr>
-                            <th>发布内容：</th>
-                            <td>
-                                @x.Content
-                            </td>
+                            <th>留言：</th>
+                            <td><textarea style="width:100%;height:80px;resize:none;" disabled="disabled">@x.Content</textarea></td>
                         </tr>
                     </table>
                  }
@@ -36,14 +30,14 @@
             <div style="height:40px;"></div>
             <div>
                 <form asp-action="CreateMessage" asp-controller="Home" method="post">
-                    <table class="table">
+                    <table class="table" style="background-color:#888;border-radius:8px;">
                             <tr>
-                                <th>昵称</th>
-                                <td><input type="text" name="NickName" id="NickName"/><label id="NickNameLabel" style="display:none;">昵称不能为空</label></td>
+                                <th style="color:#333;">昵称：</th>
+                                <td><input type="text" name="NickName" id="NickName" placeholder="昵称不能为空" style="border-radius:8px;"/></td>
                             </tr>
-                            <tr style="width:100%;height:80px;">
-                                <th>留言</th>
-                                <td><textarea placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;"></textarea></td>
+                            <tr>
+                                <th style="color:#333;">留言：</th>
+                                <td><textarea id="ContentId" placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;resize:none;border-radius:8px;"></textarea></td>
                             </tr>
                     </table>
                     <p><input type="submit" class="btn" id="btnCreateMessage" value="留言"/></p>
@@ -52,10 +46,18 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-        $("#btnCreateMessage").click(function () {
-            alert("提交成功，等待管理员审核通过后即可显示");
-        });
-</script>
+@*<script type="text/javascript">
+    var oName = document.getElementById("NickName");
+    var oContent = document.getElementById("ContentId");
+    var oBtn = document.getElementById("btnCreateMessage");
+
+    oBtn.onclick = function () {
+        if (oName.value == null || oContent.value == null) {
+            alert("内容或昵称为空，请填写。");
+
+        }
+
+    };
+</script>*@
 
 
