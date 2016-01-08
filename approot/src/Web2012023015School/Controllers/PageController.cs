@@ -49,7 +49,7 @@ namespace Web2012023015School.Controllers
         {
             var message = DB.Message.OrderByDescending(x => x.Datatime)
                 .ToList();
-            return PagedView(message,15);
+            return PagedView(message,5);
         }
        
     }

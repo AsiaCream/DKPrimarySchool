@@ -14,7 +14,7 @@ namespace Web2012023015School.Controllers
         // GET: /<controller>/
         public IActionResult Article(int id)
         {
-            var article = DB.Article.Where(x=>x.Id==id).SingleOrDefault();
+            var article = DB.Article.Where(x=>x.Id==id).SingleOrDefault();          
             return View(article);
         }
         public IActionResult Inform()

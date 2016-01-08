@@ -12,23 +12,24 @@
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion"
+                            @*<a data-toggle="collapse" data-parent="#accordion"
                                href="#@x.Id" style="color:#000000;text-decoration:none;">
                                 @x.Title
-                            </a>
+                            </a>*@
+                            <a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a>
                         </h4>
                     </div>
-                    <div id="@x.Id" class="panel-collapse collapse">
+                    @*<div id="@x.Id" class="panel-collapse collapse">
                         <div class="panel-body">
                             <p class="text-muted">
                                 <small>发布时间:&nbsp;&nbsp;@x.Datatime</small>&nbsp;&nbsp;&nbsp;<small>文章作者:&nbsp;&nbsp;@x.Author</small>
-                                <small class="pull-right">点击量：<span class="badge">99+@*@x.Clickonthequantity*@</span></small>
+                                <small class="pull-right">点击量：<span class="badge">99+@x.Clickonthequantity</span></small>
                             </p>
                             <div class="text-muted">
                                 <p>&nbsp;&nbsp;&nbsp;&nbsp;@x.Content</p>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             }
         </div>
