@@ -14,6 +14,8 @@ namespace Web2012023015School.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.news = DB.News.OrderByDescending(x => x.Datatime).Take(6).ToList();
+            ViewBag.info = DB.Inform.OrderByDescending(x => x.Datatime).Take(6).ToList();
             return View();
         }
         [Authorize]
