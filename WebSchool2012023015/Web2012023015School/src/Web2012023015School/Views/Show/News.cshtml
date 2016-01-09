@@ -15,15 +15,35 @@
     </div>
 </div>
 <div class="col-md-3">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">最新新闻</h3>
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#latestnews" data-toggle="tab">最新新闻</a>
+        </li>
+        <li>
+            <a href="#hotnews" data-toggle="tab">热点新闻</a>
+        </li>
+        <li>
+            <a href="#recommendednews" data-toggle="tab">推荐新闻</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="latestnews">
+                        @foreach (News latesnews in ViewBag.latestnews)
+                        {
+                            <a asp-action="News" asp-controller="Show" asp-route-id="@latesnews.Id"><p>@latesnews.Title</p></a>
+                         }
+</div>
+        <div class="tab-pane fade" id="hotnews">
+            @foreach (News hotnews in ViewBag.hotnews)
+            {
+                <a asp-action="News" asp-controller="Show" asp-route-id="@hotnews.Id"><p>@hotnews.Title</p></a>
+            }
         </div>
-        @foreach (News x in ViewBag.latestnews)
-        {
-            <div class="panel-body">
-                <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;">@x.Title</a>
-            </div>
-        }
+        <div class="tab-pane fade" id="recommendednews">
+            @foreach (News hotnews in ViewBag.hotnews)
+            {
+                <a asp-action="News" asp-controller="Show" asp-route-id="@hotnews.Id"><p>@hotnews.Title</p></a>
+            }
+        </div>
     </div>
 </div>
