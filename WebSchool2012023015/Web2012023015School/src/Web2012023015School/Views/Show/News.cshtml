@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Display.cshtml";
+}
+@model News
+<div style="margin-top:-20px;"></div>
+<div class="col-md-9">
+    <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4>@Model.Title</h4>
+                <p class="text-muted"><small>发布时间：@Model.Datatime</small> &nbsp;&nbsp;&nbsp;<small>浏览量：<span class="badge">9999+</span></small></p>
+            </div>
+            <div class="panel-body">
+                <p>@Model.Content</p>
+            </div>
+    </div>
+</div>
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">最新新闻</h3>
+        </div>
+        @foreach (News x in ViewBag.latestnews)
+        {
+            <div class="panel-body">
+                <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;">@x.Title</a>
+            </div>
+        }
+    </div>
+</div>

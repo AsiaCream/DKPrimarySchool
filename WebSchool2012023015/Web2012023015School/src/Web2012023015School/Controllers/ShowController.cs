@@ -21,9 +21,12 @@ namespace Web2012023015School.Controllers
         {
             return View();
         }
-        public IActionResult News()
+        public IActionResult News(int id)
         {
-            return View();
+            var news = DB.News.Where(x => x.Id == id).SingleOrDefault();
+            var latestnews = DB.News.OrderByDescending(x => x.Datatime).Take(6).ToList();
+            ViewBag.latestnews = latestnews;
+            return View(news);
         }
         public IActionResult Photes()
         {
