@@ -1,12 +1,12 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout1.cshtml";
+    Layout = "~/Views/Shared/_Display.cshtml";
 }
 @model IEnumerable<Message>
 <head>
     <script type="text/javascript" src="~/scripts/jquery-1.10.2.min.js"></script>
 </head>
 <div style="margin-top:-20px;"></div>
-<div class="col-md-9" style="background-color:rgb(245,245,245);border-radius:8px;">
+<div class="col-md-12" style="background-color:rgb(245,245,245);border-radius:8px;">
     <div class="container-fluid" id="accordion">
         <div class="panel-group" id="accordion">
             <h4><span class="label label-default">留言板</span></h4>
@@ -15,13 +15,9 @@
                  @if (x.State == State.通过)
                  {
                     <table class="table" style="background-color:rgb(245,245,245);">
-                        <tr>
-                            <th>昵称：</th>
-                            <td><input type="text" value="@x.NickName" disabled="disabled" /></td>
-                        </tr>
-                        <tr>
-                            <th>留言：</th>
-                            <td><textarea style="width:100%;height:80px;resize:none;" disabled="disabled">@x.Content</textarea></td>
+                        <tr>          
+                            <th><img src="~/images/person.png" /><p>昵称：@x.NickName</p></th>
+                            <td><textarea style="border-radius:8px;width:1065px;height:150px;resize:none;" disabled="disabled">@x.Content</textarea></td>
                         </tr>
                     </table>
                  }
