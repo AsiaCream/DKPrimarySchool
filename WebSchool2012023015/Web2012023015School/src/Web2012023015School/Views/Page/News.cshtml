@@ -10,7 +10,7 @@
             <div class="list-group">
                 <div class="list-group-item">
                     <h4><a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;">@x.Title</a></h4>
-                    <p> <small>发布时间：@x.Datatime</small><small class="pull-right">浏览量：<span class="badge">99+</span></small></p>
+                    <p class="text-muted"> <small>发布时间：@x.Datatime</small><small class="pull-right">浏览量：<span class="badge">99+</span></small></p>
                     <p>@x.Content</p>
                 </div>
             </div>
@@ -21,12 +21,12 @@
 <div class="col-md-3">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">热点新闻</h3>
+            <h3 class="panel-title">推荐新闻</h3>
         </div>
-        @foreach (var x in Model)
+        @foreach (var recommendednews in ViewBag.recommendednews)
         {
             <div class="panel-body">
-                <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;">@x.Title</a>
+                <a asp-action="News" asp-controller="Show" asp-route-id="@recommendednews.Id" style="text-decoration:none;">@recommendednews.Title</a>
             </div>
         }
     </div>

@@ -39,8 +39,7 @@
     </style>
 </head>
 <body>
-    <div class="headbanner">    
-    </div>
+    <div class="headbanner"></div>
             <nav class="navbar navbar-default">
                 <div class="container">
                     <div class="navbar-header">
@@ -54,16 +53,18 @@
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a asp-action="Index" asp-controller="Home">首页</a></li>
-                            <li><a asp-action="Details" asp-controller="Home">学校概况</a></li>
-                            <li><a asp-action="Photos" asp-controller="Page">校园风光</a></li>
-                            <li><a asp-action="News" asp-controller="Page">校园新闻</a></li>
-                            <li><a asp-action="Article" asp-controller="Page">师生文章</a></li>
-                            <li><a asp-action="RecruitStudents" asp-controller="Page">招生信息</a></li>
-                            <li><a asp-action="Inform" asp-controller="Page">通知公告</a></li>
-                            <li><a asp-action="Message" asp-controller="Page">留言板</a></li>
+                            <li><a asp-action="Index" asp-controller="Home">学&nbsp;校&nbsp;首&nbsp;页</a></li>
+                            <li><a asp-action="Details" asp-controller="Home">学&nbsp;校&nbsp;概&nbsp;况</a></li>
+                            <li><a asp-action="Photos" asp-controller="Page">校&nbsp;园&nbsp;风&nbsp;光</a></li>
+                            <li><a asp-action="News" asp-controller="Page">校&nbsp;园&nbsp;新&nbsp;闻</a></li>
+                            <li><a asp-action="Article" asp-controller="Page">师&nbsp;生&nbsp;文&nbsp;章</a></li>
+                            <li><a asp-action="RecruitStudents" asp-controller="Page">招&nbsp;生&nbsp;信&nbsp;息</a></li>
+                            <li><a asp-action="Inform" asp-controller="Page">通&nbsp;知&nbsp;公&nbsp;告</a></li>
+                            <li><a asp-action="Inform" asp-controller="Page">校&nbsp;长&nbsp;信&nbsp;箱</a></li>
+                            <li><a asp-action="Inform" asp-controller="Page">课&nbsp;余&nbsp;活&nbsp;动</a></li>
+                            <li><a asp-action="Message" asp-controller="Page">留&nbsp;&nbsp;言&nbsp;&nbsp;版</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">友情链接 <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">友&nbsp;情&nbsp;链&nbsp;接 <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="http://ggdksy.ggedu.gov.cn" target="_blank">达开初中</a></li>
                                     <li><a href="http://ggdkgz.ggedu.gov.cn" target="_blank">达开高中</a></li>
@@ -78,26 +79,15 @@
                 </div>
             </nav>
     <div class="col-md-12">
-        <div class="col-md-2">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <h5>最新通知</h5>
-                </div>
-                @foreach (Inform info in ViewBag.info)
-                {
-                    <div class="panel-body">
-                        <p>@info.Title</p>
-                    </div>
-                }
-            </div>
+        
             @*<div class="panel panel-default">
                 <div class="panel-heading text-center">
                     <h5>学校简介</h5>
                 </div>       
                     <p>学校创办于1953年，地处西江农场场部，是贵港市全日制市直公办寄宿小学，原名为“广西农垦西江农场小学”，2003年1月由市政府接管，更名为“贵港市达开高级中学附属小学”，2009年10月23日从达开高中剥离，再次更名为“贵港市达开实验小学”。</p>
             </div>*@
-        </div>
-        <div class="container col-md-8" style="margin-top:-20px;">
+        
+        <div class="container col-md-12" style="margin-top:-20px;">
             <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -141,24 +131,48 @@
                 </a>
             </div><!-- /.carousel -->
         </div>
-        <div class="col-md-2">          
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
+                    <a href="#">校园一角</a>
+                </div>
+                    <div class="panel-body thumbnail">
+                        <a href="#"><img  src="~/images/playground.jpg"/></a>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-6">          
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">
-                        <h5>最新新闻</h5>
+                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120);">
+                        <a asp-action="News" asp-controller="Page">最新新闻</a>
                     </div>
                     @foreach (News x in ViewBag.news)
                     {
                         <div class="panel-body">
-                            <p>@x.Title</p>
+                            <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a><small class="pull-right">@x.Datatime</small>
                         </div>
                     }                  
                 </div>
         </div>
-        <div class="col-md-12">
-            <footer class="text-center">
-                <p>&copy;CopyRight By 2012023015. &middot;<a asp-action="Login" asp-controller="Account">后台登陆管理</a></p>
-            </footer>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
+                    <a asp-action="Inform" asp-controller="Page">最新通知</a>
+                </div>
+                @foreach (Inform x in ViewBag.info)
+                {
+                    <div class="panel-body">
+                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a>
+                    </div>
+                }
+            </div>
         </div>
+        
+    </div>
+    <div class="col-md-12">
+        <footer class="text-center" style="background-color:rgb(128,217,97);height:50px;">
+            <div style="line-height:50px;">&copy;CopyRight By 贵港市达开实验小学. &middot;<a asp-action="Login" asp-controller="Account">后台登陆管理</a></div>
+        </footer>
     </div>
 </body>
 </html>

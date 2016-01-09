@@ -26,8 +26,10 @@ namespace Web2012023015School.Controllers
             var news = DB.News.Where(x => x.Id == id).SingleOrDefault();
             var latestnews = DB.News.OrderByDescending(x => x.Datatime).Take(6).ToList();
             var hotnews = DB.News.OrderBy(x => x.Id).Take(6).ToList();
+            var recommendednews = DB.News.OrderBy(x => x.Priority).ThenByDescending(x=>x.Datatime).Take(6).ToList();
             ViewBag.latestnews = latestnews;
             ViewBag.hotnews = hotnews;
+            ViewBag.recommendednews = recommendednews;
             return View(news);
         }
         public IActionResult Photes()

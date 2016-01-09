@@ -16,5 +16,6 @@ namespace Web2012023015School.Models
         public string Source { get; set; }
         public string Author { get; set; }
         public int Clickonthequantity{ get; set; }//点击量
+        public int Priority { get; set; }//优先级 在推荐中用
     }
 }
