@@ -1,0 +1,22 @@
+﻿.newsbanner{
+    background:url("../../images/newsbg.jpg") top no-repeat;
+    margin:-20px 0 0 0;
+}
+.newsbanner h1{
+    font-size:40px;
+    font-family:宋体;
+    padding:0 0 0 20px;
+}
+.newsbanner h4{
+    font-size:22px;
+    padding:0 0 0 20px;
+    font-family:微软雅黑;
+}
+.news-content{
+    background-color:#eee;
+}
+.info-content{
+    margin:0 0 10px 0;
+    background-color:#fff;
+    box-shadow:3px 3px 3px 3px #ccc;
+}
