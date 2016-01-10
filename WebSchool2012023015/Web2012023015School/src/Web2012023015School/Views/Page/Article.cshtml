@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="~/styles/new.css" />
 @model IEnumerable<Article>
 <div style="margin-top:-20px;"></div>
-<div class="newsbanner">
+<div class="articlebanner">
     <div class="container" style="height:200px;">
         <hgroup>
             <h1>师生文章</h1>
@@ -33,7 +33,7 @@
             <div style="height:80px;"></div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:rgb(95,124,50);">
+                    <div class="panel-heading" style="background-color:rgb(17,57,153);">
                         <h3 class="panel-title">推荐文章</h3>
                     </div>
                     @foreach (Article recommendedarticle in ViewBag.recommendedarticle)

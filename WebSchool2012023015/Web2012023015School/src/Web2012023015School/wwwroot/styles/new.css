@@ -26,6 +26,13 @@
 .page-content{
     background-color:#fff;
 }
+.articlebanner{
+    background:url("../../images/articlehb.jpg") top no-repeat;
+}
+.articlebanner h1,h4{
+    color:rgb(171,221,156);
+    font-family:仿宋;
+}
 .article{
     background-color:#eee;
 }
