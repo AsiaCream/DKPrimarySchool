@@ -27,7 +27,10 @@ namespace Web2012023015School.Controllers
         [HttpGet]
         public IActionResult Article()
         {
-            return PagedView(DB.Article, 7);
+            var article = DB.Article.OrderByDescending(x => x.Datatime).ToList();
+            var recommendedarticle = DB.Article.OrderBy(x => x.Priority).ThenByDescending(x => x.Datatime).Take(6).ToList();
+            ViewBag.recommendedarticle = recommendedarticle;
+            return PagedView(article, 7);
         }
         
         [HttpGet]
