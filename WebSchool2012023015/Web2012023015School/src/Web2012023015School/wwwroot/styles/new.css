@@ -1,5 +1,5 @@
 ﻿.newsbanner{
-    background:url("../../images/newsbg.jpg") top no-repeat;
+    background:url("../../images/newsbg.jpg") no-repeat top;
     margin:-20px 0 0 0;
 }
 .newsbanner h1{
@@ -19,4 +19,10 @@
     margin:0 0 10px 0;
     background-color:#fff;
     box-shadow:3px 3px 3px 3px #ccc;
+}
+.page{
+    background-color:#eee;
+}
+.page-content{
+    background-color:#fff;
 }
