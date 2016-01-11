@@ -23,7 +23,7 @@ namespace Web2012023015School.Controllers
             ViewBag.recommendednews = recommendednews;
             return PagedView(latestnews, 7);
         }
-        
+     
         [HttpGet]
         public IActionResult Article()
         {

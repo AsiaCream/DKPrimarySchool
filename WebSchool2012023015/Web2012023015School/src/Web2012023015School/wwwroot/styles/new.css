@@ -43,7 +43,7 @@
 .article{
     background-color:#eee;
 }
-.article h4,a{
+.article h4{
     font-family:微软雅黑;
     color:rgb(17,57,153);
 }
@@ -59,4 +59,10 @@
     padding:0 0 0 20px;
     color:rgb(239,253,96);
     font-family:sans-serif;
+}
+.recruit{
+    background-color:#eee;
+}
+.inform{
+    background-color:#eee;
 }
