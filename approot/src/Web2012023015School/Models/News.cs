@@ -12,7 +12,7 @@ namespace Web2012023015School.Models
         public string Title { get; set; }
         public DateTime Datatime { get; set; }
         public string Content { get; set; }
-
+        public int Priority { get; set; }
         public string Source { get; set; }
     }
 }

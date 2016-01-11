@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Article>
 <div class="container">
+    <a asp-action="CreateArticle" asp-controller="Admin"><h5>快速添加文章</h5></a>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -9,6 +10,7 @@
             <th>文章来源</th>
             <th>文章类别</th>
             <th>录入时间</th>
+            <th>优先级</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +23,7 @@
                 <th>@x.Source</th>
                 <th>@x.Category</th>
                 <th>@x.Datatime</th>
+                <th>@x.Priority</th>
                 
                 @if (User.IsSignedIn())
                 {

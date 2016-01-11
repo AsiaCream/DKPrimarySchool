@@ -18,13 +18,19 @@ namespace Web2012023015School.Controllers
         [HttpGet]
         public IActionResult News()
         {
-            return PagedView(DB.News, 7);
+            var latestnews = DB.News.OrderByDescending(x => x.Datatime).ToList();
+            var recommendednews = DB.News.OrderBy(x => x.Priority).ThenByDescending(x => x.Datatime).Take(6).ToList();
+            ViewBag.recommendednews = recommendednews;
+            return PagedView(latestnews, 7);
         }
         
         [HttpGet]
         public IActionResult Article()
         {
-            return PagedView(DB.Article, 7);
+            var article = DB.Article.OrderByDescending(x => x.Datatime).ToList();
+            var recommendedarticle = DB.Article.OrderBy(x => x.Priority).ThenByDescending(x => x.Datatime).Take(6).ToList();
+            ViewBag.recommendedarticle = recommendedarticle;
+            return PagedView(article, 7);
         }
         
         [HttpGet]

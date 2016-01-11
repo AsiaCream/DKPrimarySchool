@@ -1,21 +1,21 @@
 ﻿@{
     Layout = "~/Views/Shared/_Display.cshtml";
 }
-<link rel="stylesheet" type="text/css" href="~/styles/new.css" />
-@model Article
-<div style="margin-top:-20px;"></div>
+<link rel="stylesheet" type="text/css" href="~/styles/new.css"/>
+@model News
+<div style="margin-top:-20px"></div>
 <div class="page">
     <div class="container">
         <div class="col-md-8 page-content" style="box-shadow:3px 3px 3px #ccc;">
-            <div class="panel-heading">
-                <h3 style="text-align:center;">@Model.Title</h3>
-                <p class="text-muted"><small>发布时间：@Model.Datatime</small> &nbsp;&nbsp;&nbsp;<small class="pull-right">浏览量：<span>9999+</span></small></p>
-            </div>
-            <div class="panel-body">
-                <p>@Model.Content</p>
-            </div>
+                <div class="panel-heading">
+                    <h4 style="text-align:center;">@Model.Title</h4>
+                    <p class="text-muted"><small>发布时间：@Model.Datatime</small> &nbsp;&nbsp;&nbsp;<small class="pull-right">浏览量：<span>9999+</span></small></p>
+                </div>
+                <div class="panel-body">
+                    <p>@Model.Content</p>
+                </div>
         </div>
-        @*<div class="col-md-4">
+        <div class="col-md-4">
             <ul class="nav nav-tabs">
                 <li class="active">
                     <a href="#latestnews" data-toggle="tab">最新新闻</a>
@@ -54,7 +54,6 @@
                     </div>
                 </div>
             </div>
-        </div>*@
+        </div>
     </div>
 </div>
-<div style="height:20px;background-color:#eee;"></div>
