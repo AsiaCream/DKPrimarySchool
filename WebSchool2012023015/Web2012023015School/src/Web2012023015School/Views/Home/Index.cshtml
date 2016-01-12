@@ -40,7 +40,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color:#cfc;">
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -108,7 +108,7 @@
         <a href="#myCarousel" data-slide="prev" class="carousel-control left">&lsaquo;</a>
         <a href="#myCarousel" data-slide="next" class="carousel-control right">&rsaquo;</a>
     </div>
-
+    <div style="height:20px;"></div>
     <div class="container">
         <div class="col-md-3">
             <div class="panel panel-default">
@@ -129,7 +129,7 @@
                 @foreach (News x in ViewBag.news)
                 {
                     <div class="panel-body">
-                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a><small class="pull-right">@x.Datatime</small>
+                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a><small class="pull-right">@x.Datatime</small>
                     </div>
                 }
             </div>
@@ -142,18 +142,51 @@
                 @foreach (Inform x in ViewBag.info)
                 {
                     <div class="panel-body">
-                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a>
+                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a>
                     </div>
                 }
             </div>
         </div>
     </div>
-            @*<div class="panel panel-default">
-                <div class="panel-heading text-center">
-                    <h5>学校简介</h5>
-                </div>       
-                    <p>学校创办于1953年，地处西江农场场部，是贵港市全日制市直公办寄宿小学，原名为“广西农垦西江农场小学”，2003年1月由市政府接管，更名为“贵港市达开高级中学附属小学”，2009年10月23日从达开高中剥离，再次更名为“贵港市达开实验小学”。</p>
-            </div>*@
+    <div class="col-md-12"  style="margin-bottom:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
+                    <div class="container-fluid">
+                        <h4 class="text-center">最新活动</h4>
+                        <p><a href="#">打球</a></p>
+                        <p><a href="#">踢球</a></p>
+                        <p><a href="#">打篮球</a></p>
+                        <p><a href="#">打乒乓球</a></p>
+                        <p><a href="#">跳高</a></p>
+                    </div>
+                </div>
+                <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <h4 class="text-center">最新文章</h4>
+                            @foreach (Article x in ViewBag.article)
+                            {
+                                <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
+                            }
+                        </div>
+                        </div>
+                    </div>
+                <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <h4 class="text-center">最新招生信息</h4>
+                            @foreach (RecruitStudents x in ViewBag.recruit)
+                            {
+                                <p><a asp-action="RecruitStudents" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
+
+                            }
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
         
         
     <div class="col-md-12">
