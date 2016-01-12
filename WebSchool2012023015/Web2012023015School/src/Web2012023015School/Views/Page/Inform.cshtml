@@ -1,46 +1,25 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
+<link rel="stylesheet" href="~/styles/new.css" />
 @model IEnumerable<Inform>
-<div class="container">
-    <div class="col-md-9">
-        <div class="container-fluid" id="accordion">
-            @*<div class="panel-group" id="accordion">
-                    <h4><span class="label label-default">通知公告</span></h4>
-                    @foreach (var x in Model)
-                    {
-                        <div class="panel panel-default ">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion"
-                                       href="#@x.Id" style="color:#000000;text-decoration:none;" title="点击查看详细内容">
-                                        @x.Title
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="@x.Id" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p class="text-muted">
-                                        <small>发布时间:2015-12-07</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>文章作者:Cream</small>
-                                        <small class="pull-right">点击量：<span class="badge">99+</span></small>
-                                    </p>
-                                    <pre>@x.Content</pre>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>*@
-            @foreach (var x in Model)
+<div style="height:20px;margin-top:-20px;background-color:#eee;"></div>
+<div class="inform"> 
+    <div class="container">
+        <div class="col-md-12">
+            <div class="container-fluid" id="accordion">
+                @foreach (var x in Model)
             {
-                <div class="list-group">
-                    <div class="list-group-item">
-                        <h4>@x.Title</h4>
-                        <p class="text-muted"> <small>发布时间：@x.Datatime</small></p>
-                        <p>@x.Content</p>
+                    <div class="list-group" style="box-shadow:4px 4px 5px #ccc;">
+                        <div class="list-group-item">
+                            <a asp-action="Inform" asp-controller="Show" asp-route-id="@x.Id" style="color:#cc0000;font-family:微软雅黑;" title="点击查看更多"><h4>@x.Title</h4></a>
+                            <p class="text-muted"> <small>发布时间：@x.Datatime</small></p>
+                            <p>@x.Content</p>
+                        </div>
                     </div>
-                </div>
-            }
-            @Html.MakePager("pager-item", "active", "pager")
+                }
+                @Html.MakePager("pager-item", "active", "pager")
+            </div>
         </div>
     </div>
 </div>

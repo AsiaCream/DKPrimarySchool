@@ -17,9 +17,12 @@ namespace Web2012023015School.Controllers
             var article = DB.Article.Where(x=>x.Id==id).SingleOrDefault();
             return View(article);
         }
-        public IActionResult Inform()
+        public IActionResult Inform(int id)
         {
-            return View();
+            var inform = DB.Inform.Where(x => x.Id == id).SingleOrDefault();
+            var others = DB.Inform.Where(x => x.Id != id).OrderByDescending(x => x.Datatime).ToList();
+            ViewBag.others = others;
+            return View(inform);
         }
         public IActionResult News(int id)
         {

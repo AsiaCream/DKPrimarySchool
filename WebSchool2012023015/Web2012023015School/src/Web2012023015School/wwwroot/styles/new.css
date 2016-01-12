@@ -1,16 +1,14 @@
 ﻿.newsbanner{
-    background:url("../../images/newsbg.jpg") top no-repeat;
+    background-image:url("../../images/newsbg.jpg");
     margin:-20px 0 0 0;
 }
 .newsbanner h1{
-    font-size:40px;
-    font-family:宋体;
+    font-family:微软雅黑;
     padding:0 0 0 20px;
 }
 .newsbanner h4{
-    font-size:22px;
-    padding:0 0 0 20px;
     font-family:微软雅黑;
+    padding:0 0 0 20px;
 }
 .news-content{
     background-color:#eee;
@@ -30,16 +28,41 @@
     color:black;
 }
 .articlebanner{
-    background:url("../../images/articlehb.jpg") top no-repeat;
+    background-image:url("../../images/articlehb.jpg");
 }
-.articlebanner h1,h4{
+.articlebanner h1{
+    padding:0 0 0 20px;
+    color:rgb(171,221,156);
+    font-family:仿宋;
+}
+.articlebanner h4{
+    padding:0 0 0 20px;
     color:rgb(171,221,156);
     font-family:仿宋;
 }
 .article{
     background-color:#eee;
 }
-.article h4,a{
+.article h4{
     font-family:微软雅黑;
     color:rgb(17,57,153);
+}
+.messagebanner{
+    background-image:url("../../images/messagehb.jpg");
+}
+.messagebanner h1{
+    padding:0 0 0 20px;
+    color:rgb(239,253,96);
+    font-family:sans-serif;
+}
+.messagebanner h4{
+    padding:0 0 0 20px;
+    color:rgb(239,253,96);
+    font-family:sans-serif;
+}
+.recruit{
+    background-color:#eee;
+}
+.inform{
+    background-color:#eee;
 }
