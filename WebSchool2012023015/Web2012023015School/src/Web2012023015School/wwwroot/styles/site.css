@@ -1,0 +1,11 @@
+﻿@charset "utf-8";
+.logo{
+    padding:0 0 0 20px;
+}
+#myCarousel{
+    margin:50px 0 0 0;
+}
+.carousel-control{
+    font-size:80px;
+    line-height:500px;
+}
