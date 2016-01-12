@@ -20,7 +20,7 @@ namespace Web2012023015School.Controllers
         public IActionResult Inform(int id)
         {
             var inform = DB.Inform.Where(x => x.Id == id).SingleOrDefault();
-            var others = DB.Inform.Where(x => x.Id != id).OrderByDescending(x => x.Datatime).ToList();
+            var others = DB.Inform.Where(x => x.Id != id).OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.others = others;
             return View(inform);
         }
@@ -39,9 +39,12 @@ namespace Web2012023015School.Controllers
         {
             return View();
         }
-        public IActionResult RecruitStudents()
+        public IActionResult RecruitStudents(int id)
         {
-            return View();
+            var recruit = DB.RecruitStudents.Where(x => x.Id == id).SingleOrDefault();
+            var others = DB.RecruitStudents.Where(x => x.Id != id).OrderBy(x => x.Datatime).Take(5).ToList();
+            ViewBag.others = others;
+            return View(recruit);
         }
     }
 }

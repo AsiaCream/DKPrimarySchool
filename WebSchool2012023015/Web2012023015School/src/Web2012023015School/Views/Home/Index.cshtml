@@ -110,41 +110,43 @@
     </div>
     <div style="height:20px;"></div>
     <div class="container">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
-                    <a href="#" style="color:rgb(0,157,0);">校园一角</a>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
+                        <a href="#" style="color:rgb(0,157,0);">校园一角</a>
+                    </div>
+                    <div class="thumbnail">
+                        <a href="#"><img src="~/images/door.jpg" /></a>
+                    </div>
                 </div>
-                <div class="thumbnail">
-                    <a href="#"><img src="~/images/door.jpg" /></a>
-                </div>
-            </div>
 
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center" style="background-color:rgb(140,220,120);">
-                    <a asp-action="News" asp-controller="Page" style="color:rgb(0,157,0);">最新新闻</a>
-                </div>
-                @foreach (News x in ViewBag.news)
-                {
-                    <div class="panel-body">
-                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a><small class="pull-right">@x.Datatime</small>
-                    </div>
-                }
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
-                    <a asp-action="Inform" asp-controller="Page" style="color:rgb(0,157,0);">最新通知</a>
-                </div>
-                @foreach (Inform x in ViewBag.info)
-                {
-                    <div class="panel-body">
-                        <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120);">
+                        <a asp-action="News" asp-controller="Page" style="color:rgb(0,157,0);">最新新闻</a>
                     </div>
-                }
+                    @foreach (News x in ViewBag.news)
+                    {
+                        <div class="panel-body">
+                            <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a><small class="pull-right">@x.Datatime</small>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
+                        <a asp-action="Inform" asp-controller="Page" style="color:rgb(0,157,0);">最新通知</a>
+                    </div>
+                    @foreach (Inform x in ViewBag.info)
+                    {
+                        <div class="panel-body">
+                            <a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
@@ -153,7 +155,7 @@
             <div class="row">
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
                     <div class="container-fluid">
-                        <h4 class="text-center">最新活动</h4>
+                        <a><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新活动</h4></a>
                         <p><a href="#">打球</a></p>
                         <p><a href="#">踢球</a></p>
                         <p><a href="#">打篮球</a></p>
@@ -164,7 +166,7 @@
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
                     <div class="container-fluid">
                         <div class="col-md-12">
-                            <h4 class="text-center">最新文章</h4>
+                            <a asp-action="Article" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新文章</h4></a>
                             @foreach (Article x in ViewBag.article)
                             {
                                 <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
@@ -175,7 +177,7 @@
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
                     <div class="container-fluid">
                         <div class="col-md-12">
-                            <h4 class="text-center">最新招生信息</h4>
+                            <a asp-action="RecruitStudents" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新招生信息</h4></a>
                             @foreach (RecruitStudents x in ViewBag.recruit)
                             {
                                 <p><a asp-action="RecruitStudents" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
@@ -197,7 +199,7 @@
    <script type="text/javascript">
        $(function () {
            $('#myCarousel').carousel({
-               interval:3000,
+               interval:2000,
        });
        $('carousel-control').css('line-height',$('.carousel-inner img').height()+'px');
        $(window).resize(function () {

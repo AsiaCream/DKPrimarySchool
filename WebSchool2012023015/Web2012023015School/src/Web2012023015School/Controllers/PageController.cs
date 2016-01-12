@@ -48,7 +48,8 @@ namespace Web2012023015School.Controllers
         [HttpGet]    
         public IActionResult RecruitStudents()
         {
-            return PagedView(DB.RecruitStudents, 7);
+            var recruit = DB.RecruitStudents.OrderByDescending(x=>x.Datatime).ToList();
+            return PagedView(recruit, 10);
         }
         [HttpGet]
         public IActionResult Message()

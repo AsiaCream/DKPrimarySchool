@@ -1,47 +1,25 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
+@model IEnumerable<RecruitStudents>
 <link rel="stylesheet" href="~/styles/new.css" />
-<div style="height:10px;background-color:#eee;margin-top:-20px;"></div>
+<div style="height:20px;background-color:#eee;margin-top:-20px;"></div>
 <div class="recruit">
     <div class="container">
         <div class="col-md-9">
             <div class="container-fluid" id="accordion">
-                <div class="panel-group" id="accordion">
-                    <h4 style="margin-top:0;"><span class="label label-default">招生信息</span></h4>
-                    @foreach (var x in Model)
+                @foreach (var x in Model)
             {
-                        <div class="panel panel-default ">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion"
-                                       href="#@x.Id" style="color:#000000;text-decoration:none;" title="点击查看具体内容">
-                                        @x.Title <small class="pull-right">点击查看</small>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="@x.Id" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p class="text-muted">
-                                        <small>发布时间:2015-12-07</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>贵港市达开实验小学招生部</small>
-                                        <small class="pull-right">访问次数：<span class="badge">99+</span></small>
-                                    </p>
-                                    <pre>@x.Content</pre>
-                                </div>
-                            </div>
+                    <div class="list-group" style="box-shadow:4px 4px 5px #ccc;">
+                        <div class="list-group-item">
+                            <a asp-action="Inform" asp-controller="Show" asp-route-id="@x.Id" style="color:#cc0000;font-family:微软雅黑;" title="点击查看更多"><h4>@x.Title</h4></a>
+                            <p class="text-muted"> <small>发布时间：@x.Datatime</small></p>
+                            <p>@x.Content</p>
                         </div>
-                    }
-                </div>
+                    </div>
+                }
+                @Html.MakePager("pager-item", "active", "pager")
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="panel" style="padding:10px;box-shadow:5px 5px 5px 5px #ccc;">
-            <div class="panel-heading text-center">
-                <h3>学校简介</h3>
-            </div>
-                <p style="font-size:18px;font-family:微软雅黑;">学校创办于1953年，地处西江农场场部，是贵港市全日制市直公办寄宿小学，原名为“广西农垦西江农场小学”，2003年1月由市政府接管，更名为“贵港市达开高级中学附属小学”，2009年10月23日从达开高中剥离，再次更名为“贵港市达开实验小学”。</p>
-        </div>
-        </div>
-
     </div>
+</div>
 </div>
