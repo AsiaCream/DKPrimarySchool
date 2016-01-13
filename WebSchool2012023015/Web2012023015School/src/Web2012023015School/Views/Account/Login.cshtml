@@ -35,15 +35,18 @@
     <![endif]-->
 </head>
 
-<body>
+<body style="background-color:#eee;">
 
     <div class="container">
 
         <form class="form-signin" asp-action="Login" asp-controller="Account">
-            <input type="text" name="username" class="form-control" placeholder="Username">
-            <input type="password" name="password" class="form-control" placeholder="password">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">登 陆</button>
-            <a asp-action="Index" asp-controller="Home">网站首页</a>
+            <div class="row">
+                <h2 style="text-align:center;background:rgb(51,122,183);color:white;padding:10px;">后台管理登陆</h2>
+                <input type="text" name="username" class="form-control" placeholder="用户名">
+                <input type="password" name="password" class="form-control" placeholder="密码">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登 陆</button>
+                <a asp-action="Index" asp-controller="Home">网站首页</a>
+            </div>
         </form>
 
     </div> <!-- /container -->
