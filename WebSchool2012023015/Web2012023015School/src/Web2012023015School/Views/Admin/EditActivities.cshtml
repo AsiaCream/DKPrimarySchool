@@ -1,0 +1,31 @@
+﻿@model Activities
+<form role="form" asp-action="EditActivities" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <table class="table">
+            <tr>
+                <th>活动标题</th>
+                <td><input class="form-control" type="text" name="Title" value="@Model.Title" /></td>
+            </tr>
+            <tr>
+                <th>活动内容</th>
+                <td><textarea class="form-control" rows="3" name="Content">@Model.Content</textarea></td>
+            </tr>
+            <tr>
+                <th>活动地点</th>
+                <td><input class="form-control" type="text" name="Address" value="@Model.Address" /></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" type="hidden" name="Datatime" value="@DateTime.Now" /></td>
+            </tr>
+            <tr>
+                <th>优先级</th>
+                <td><input class="form-control" type="text" name="Priority" value="@Model.Priority" /></td>
+            </tr>
+        </table>
+        <p>
+            <input class="btn inverse" type="submit" value="修改" />
+            <a asp-action="DetailsActivities" asp-controller="Admin">取消</a>
+        </p>
+    </div>
+</form>

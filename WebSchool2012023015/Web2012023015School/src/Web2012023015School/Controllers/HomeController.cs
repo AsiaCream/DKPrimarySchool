@@ -18,6 +18,7 @@ namespace Web2012023015School.Controllers
             ViewBag.info = DB.Inform.OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.article = DB.Article.OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.recruit = DB.RecruitStudents.OrderByDescending(x => x.Datatime).Take(5).ToList();
+            ViewBag.activities = DB.Activities.OrderBy(x => x.Datatime).Take(5).ToList();
             return View();
         }
         [Authorize]

@@ -423,5 +423,62 @@ namespace Web2012023015School.Controllers
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsRecruitStudents", "Admin");
         }
+
+        [HttpGet]
+        public IActionResult CreateActivities()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateActivities(Activities activities)
+        {
+            DB.Activities.Add(activities);
+            DB.SaveChanges();
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+        [HttpGet]
+        public IActionResult EditActivities(int id)
+        {
+            var activities = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+            if (activities == null)
+                return Content("没有此记录！");
+            else
+                return View(activities);
+        }
+        [HttpPost]
+        public IActionResult EditActivities(int id,Activities activities)
+        {
+            var n = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+
+            if (n == null)
+                return Content("没有该记录！");
+            n.Title = activities.Title;
+            n.Content = activities.Content;
+            n.Datatime = activities.Datatime;
+            n.Address = activities.Address;
+            DB.SaveChanges();
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+
+        public IActionResult DeleteActivities(int id)
+        {
+            var a = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+            DB.Activities.Remove(a);
+            DB.SaveChanges();
+            System.Diagnostics.Debug.Write("id=" + id);
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+        public IActionResult DetailsActivities()
+        {
+            var activities = DB.Activities.ToList();
+
+            return PagedView(activities, 10);
+        }
     }
 }

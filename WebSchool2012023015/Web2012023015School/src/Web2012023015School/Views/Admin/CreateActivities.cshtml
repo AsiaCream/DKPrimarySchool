@@ -1,0 +1,30 @@
+﻿<form role="form" asp-action="CreateActivities" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <h2>添加活动</h2>
+        <table class="table">
+            <tr>
+                <th>活动标题</th>
+                <td><input class="form-control" type="text" name="Title" /></td>
+            </tr>
+            <tr>
+                <th>活动内容</th>
+                <td><textarea class="form-control" name="Content"></textarea></td>
+            </tr>
+            <tr>
+                <th>活动地点</th>
+                <td><input class="form-control" name="Address" /></td>
+            </tr>
+            <tr>
+                <th>优先级</th>
+                <td><input class="form-control" type="text" name="Priority" /></td>
+            </tr>
+            <tr>
+                <td><input class="form-control" type="hidden" name="DataTime" value="@DateTime.Now" /></td>
+            </tr>
+        </table>
+        <p>
+            <input class="btn inverse" type="submit" value="提交" />
+            <a asp-action="DetailsActivities" asp-controller="Admin">取消</a>
+        </p>
+    </div>
+</form>

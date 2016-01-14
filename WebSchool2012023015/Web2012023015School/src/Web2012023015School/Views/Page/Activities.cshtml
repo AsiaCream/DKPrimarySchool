@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<link rel="stylesheet" href="~/styles/new.css" />
+@model IEnumerable<Activities>
+<div style="height:20px;margin-top:-20px;background-color:#eee;"></div>
+<div class="activities">
+    <div class="container">
+        <div class="col-md-9">
+            <div class="container-fluid" id="accordion">
+                @foreach (var x in Model)
+            {
+                    <div class="list-group" style="box-shadow:4px 4px 5px #ccc;">
+                        <div class="list-group-item">
+                            <a asp-action="Activities" asp-controller="Show" asp-route-id="@x.Id" style="color:#cc0000;font-family:微软雅黑;" title="点击查看更多"><h4>@x.Title</h4></a>
+                            <p class="text-muted"> <small>发布时间：@x.Datatime</small></p>
+                            <p>@x.Content</p>
+                        </div>
+                    </div>
+                }
+                @Html.MakePager("pager-item", "active", "pager")
+            </div>
+        </div>
+    </div>
+</div>

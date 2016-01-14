@@ -42,9 +42,16 @@ namespace Web2012023015School.Controllers
         public IActionResult RecruitStudents(int id)
         {
             var recruit = DB.RecruitStudents.Where(x => x.Id == id).SingleOrDefault();
-            var others = DB.RecruitStudents.Where(x => x.Id != id).OrderBy(x => x.Datatime).Take(5).ToList();
+            var others = DB.RecruitStudents.Where(x => x.Id != id).OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.others = others;
             return View(recruit);
+        }
+        public IActionResult Activities(int id)
+        {
+            var activities = DB.Activities.Where(x => x.Id == id).SingleOrDefault();
+            var others = DB.Activities.Where(x => x.Id != id).OrderByDescending(x => x.Datatime).Take(5).ToList();
+            ViewBag.others = others;
+            return View(activities);
         }
     }
 }

@@ -155,12 +155,13 @@
             <div class="row">
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
                     <div class="container-fluid">
-                        <a><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新活动</h4></a>
-                        <p><a href="#" style="color:#000000;">打球</a></p>
-                        <p><a href="#" style="color:#000000;">踢球</a></p>
-                        <p><a href="#" style="color:#000000;">打篮球</a></p>
-                        <p><a href="#" style="color:#000000;">打乒乓球</a></p>
-                        <p><a href="#" style="color:#000000;">跳高</a></p>
+                        <div class="col-md-12">
+                            <a asp-action="Activities" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新活动</h4></a>
+                            @foreach (Activities x in ViewBag.activities)
+                            {
+                                <p><a asp-action="Activities" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a></p>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
