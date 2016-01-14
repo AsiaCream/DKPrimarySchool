@@ -60,5 +60,24 @@ namespace Web2012023015School.Controllers
             DB.SaveChanges();
             return RedirectToAction("DetailsMessage", "Home");
         }
+        public IActionResult CreateCEmail(CEmail cemail)
+        {
+            cemail.Datatime = DateTime.Now;
+            DB.CEmail.Add(cemail);
+            DB.SaveChanges();
+            return RedirectToAction("CEmail", "Page");
+        }
+        public IActionResult DeleteCEmail(int id)
+        {
+            var email = DB.CEmail.Where(x => x.Id == id).SingleOrDefault();
+            DB.CEmail.Remove(email);
+            DB.SaveChanges();
+            System.Diagnostics.Debug.Write("id=" + id);
+            return RedirectToAction("DetailsCEmail", "Home");
+        }
+        public IActionResult DetailsCEmail()
+        {
+            return PagedView(DB.CEmail.ToList(), 15);
+        }
     }
 }

@@ -72,6 +72,19 @@
                                     <li><a asp-action="DetailsMessage" asp-controller="Home">审核留言板</a></li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">校长信箱<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-action="DetailsCEmail" asp-controller="Home">查看校长信箱</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">课余活动<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a asp-action="DetailsActivities" asp-controller="Admin">管理课余活动</a></li>
+                                    <li><a asp-action="CreateActivities" asp-controller="Admin">添加课余活动</a></li>
+                                </ul>
+                            </li>
 
                         </ul>
                     </li>

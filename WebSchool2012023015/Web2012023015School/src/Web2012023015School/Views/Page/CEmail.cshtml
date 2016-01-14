@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<form asp-action="CreateCEmail" asp-controller="Home" method="post">
+    <div class="container">
+        <div class="col-md-9">
+            <div class="container-fluid">
+                <div class="col-md-9">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>标题：</th>
+                                <td><input type="text" name="Title" placeholder="请输入标题" /></td>
+                            </tr>
+                            <tr>
+                                <th>你的联系邮箱：</th>
+                                <td><input type="text" name="Email" placeholder="请输入您的邮箱" /></td>
+                            </tr>
+                            <tr>
+                                <th>内容：</th>
+                                <td><textarea name="Content" placeholder="请输入内容" style="height:150px;width:450px;resize:none;"></textarea></td>
+                            </tr>
+                        </thead>
+                    </table>
+                    <p><input type="submit" class="btn" id="btnCreateMessage" value="提交" /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</form>

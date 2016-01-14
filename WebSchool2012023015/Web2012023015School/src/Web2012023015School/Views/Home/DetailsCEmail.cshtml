@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CEmail>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>编号：</th>
+            <th>标题：</th>
+            <th>发布时间：</th>
+            <th>发布内容：</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Title</td>
+                <td>@x.Datatime</td>
+                <td>@x.Content</td>
+                <td>
+                    <a asp-action="DeleteCEmail" asp-controller="Home" asp-route-id="@x.Id">删除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.MakePager("pager-item", "active", "pager")

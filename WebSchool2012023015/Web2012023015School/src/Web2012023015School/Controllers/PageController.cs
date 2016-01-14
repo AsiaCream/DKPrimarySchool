@@ -58,6 +58,12 @@ namespace Web2012023015School.Controllers
                 .ToList();
             return PagedView(message,5);
         }
+
+        [HttpGet]
+        public IActionResult CEmail()
+        {
+            return View();
+        }
        
     }
 }
