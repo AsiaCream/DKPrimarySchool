@@ -28,9 +28,13 @@ namespace Web2012023015School.Controllers
         {
             var result = await signInManager.PasswordSignInAsync(username, password, false, false);
             if (result.Succeeded)
-                return RedirectToAction("Manage", "Home",username);
+            {
+                return RedirectToAction("Manage", "Home");
+            }
             else
+            {
                 return RedirectToAction("Login", "Account");
+            }
         }
 
         //登出

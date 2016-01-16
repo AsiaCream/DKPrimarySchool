@@ -18,6 +18,7 @@ namespace Web2012023015School.Controllers
             ViewBag.info = DB.Inform.OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.article = DB.Article.OrderByDescending(x => x.Datatime).Take(5).ToList();
             ViewBag.recruit = DB.RecruitStudents.OrderByDescending(x => x.Datatime).Take(5).ToList();
+            ViewBag.activities = DB.Activities.OrderBy(x => x.Datatime).Take(5).ToList();
             return View();
         }
         [Authorize]
@@ -59,6 +60,25 @@ namespace Web2012023015School.Controllers
             message.State = State.通过;
             DB.SaveChanges();
             return RedirectToAction("DetailsMessage", "Home");
+        }
+        public IActionResult CreateCEmail(CEmail cemail)
+        {
+            cemail.Datatime = DateTime.Now;
+            DB.CEmail.Add(cemail);
+            DB.SaveChanges();
+            return RedirectToAction("CEmail", "Page");
+        }
+        public IActionResult DeleteCEmail(int id)
+        {
+            var email = DB.CEmail.Where(x => x.Id == id).SingleOrDefault();
+            DB.CEmail.Remove(email);
+            DB.SaveChanges();
+            System.Diagnostics.Debug.Write("id=" + id);
+            return RedirectToAction("DetailsCEmail", "Home");
+        }
+        public IActionResult DetailsCEmail()
+        {
+            return PagedView(DB.CEmail.ToList(), 15);
         }
     }
 }

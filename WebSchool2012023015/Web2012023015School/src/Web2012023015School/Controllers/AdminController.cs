@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Http;
 using Web2012023015School.Models;
 using Microsoft.AspNet.Authorization;
+using CodeComb.Media;
+using System.IO;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,14 +20,15 @@ namespace Web2012023015School.Controllers
         public ArticleContext DB { get; set; }
         //文章，新闻，....管理模块
 
-        //通知公告(增删改查)----------------------------
+        #region 后台通知公告详细
         [HttpGet]
         public IActionResult DetailsInform()
         {
             return PagedView(DB.Inform, 10);
         }
+        #endregion
 
-        //渲染添加通知公告页面
+        #region 添加通知公告
         [HttpGet]
         public IActionResult CreateInform()
         {
@@ -40,8 +44,9 @@ namespace Web2012023015School.Controllers
             return RedirectToAction("DetailsInform", "Admin");
 
         }
+        #endregion
 
-        //渲染编辑页面
+        #region 编辑公告页面
         [HttpGet]
         public IActionResult EditInform(int id)
         {
@@ -64,15 +69,16 @@ namespace Web2012023015School.Controllers
 
             if (n == null)
                 return Content("没有该记录！");
-            n.Title =inform.Title;
+            n.Title = inform.Title;
             n.Content = inform.Content;
             n.Datatime = inform.Datatime;
             DB.SaveChanges();
             return RedirectToAction("DetailsInform", "Admin");
 
         }
+        #endregion
 
-        // 删除通知公告
+        #region 删除通知公告
         public IActionResult DeleteInform(int id)
         {
             var inform = DB.Inform
@@ -83,16 +89,17 @@ namespace Web2012023015School.Controllers
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsInform", "Admin");
         }
+        #endregion
 
-        //新闻版（增删改查）----------------------------
-
-        //分页
+        #region 新闻详细
         [HttpGet]
         public IActionResult DetailsNews(int id)
         {
             return PagedView(DB.News, 10);
         }
-        //渲染添加新闻页面
+        #endregion
+       
+        #region 添加新闻页面
         [HttpGet]
         public IActionResult CreateNews()
         {
@@ -108,8 +115,9 @@ namespace Web2012023015School.Controllers
             return RedirectToAction("DetailsNews", "Admin");
 
         }
+        #endregion
 
-        //渲染编辑页面
+        #region 新闻编辑页面
         [HttpGet]
         public IActionResult EditNews(int id)
         {
@@ -138,10 +146,11 @@ namespace Web2012023015School.Controllers
             n.Source = news.Source;
             DB.SaveChanges();
             return RedirectToAction("DetailsNews", "Admin");
-         
-        }
 
-        // 删除新闻
+        }
+        #endregion
+
+        #region 删除新闻页面
         public IActionResult DeleteNews(int id)
         {
             var news = DB.News
@@ -152,16 +161,17 @@ namespace Web2012023015School.Controllers
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsNews", "Admin");
         }
+        #endregion
 
-        //文章--------------------------------------------
-       
-        //分页
+        #region 后台文章详细
         [HttpGet]
         public IActionResult DetailsArticle()
-        {           
+        {
             return PagedView(DB.Article, 10);
         }
-        //渲染添加w文章页面
+        #endregion
+
+        #region 添加文章
         [HttpGet]
         public IActionResult CreateArticle()
         {
@@ -177,8 +187,9 @@ namespace Web2012023015School.Controllers
             return RedirectToAction("DetailsArticle", "Admin");
 
         }
+        #endregion
 
-        //渲染编辑文章页面
+        #region 后台编辑文章
         [HttpGet]
         public IActionResult EditArticle(int id)
         {
@@ -208,8 +219,9 @@ namespace Web2012023015School.Controllers
             return RedirectToAction("DetailsArticle", "Admin");
 
         }
+        #endregion
 
-        // 删除文章
+        #region 删除文章
         public IActionResult DeleteArticle(int id)
         {
             var article = DB.Article
@@ -219,7 +231,8 @@ namespace Web2012023015School.Controllers
             DB.SaveChanges();
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsArticle", "Admin");
-        }
+        } 
+        #endregion
 
         //校园风光（照片）------------------------------------------------------
         //分页
@@ -237,11 +250,12 @@ namespace Web2012023015School.Controllers
 
         //处理添加照片请求
         [HttpPost]
-        public IActionResult CreatePhotos(Photos photos)
+        public IActionResult CreatePhotos(IFormFile picture,Photos photos)
         {
+            var img = new Image(picture.ReadAllBytes(),Path.GetExtension(picture.GetFileName()));
             DB.Photos.Add(photos);
             DB.SaveChanges();
-            return RedirectToAction("DetailsPhotos", "Admin");
+            return File(img.AllBytes,picture.ContentType);
 
         }
 
@@ -269,7 +283,6 @@ namespace Web2012023015School.Controllers
             if (n == null)
                 return Content("没有该记录！");
             n.Title = photos.Title;
-            n.Path = photos.Path;
             n.Discription = photos.Discription;
             n.Datetime = photos.Datetime;
             DB.SaveChanges();
@@ -277,7 +290,7 @@ namespace Web2012023015School.Controllers
 
         }
 
-        // 删除文章
+        // 删除照片
         public IActionResult DeletePhotos(int id)
         {
             var photos = DB.Photos
@@ -357,21 +370,23 @@ namespace Web2012023015School.Controllers
             return RedirectToAction("SchoolInfo", "Admin");
         }
 
-        //招生信息 ------------------------------------------
-        //分页
+        #region 后台招生信息详细
         [HttpGet]
         public IActionResult DetailsRecruitStudents()
         {
             return PagedView(DB.RecruitStudents, 10);
-        }
-        //渲染添加招生信息页面
+        } 
+        #endregion
+
+        #region 渲染添加招生信息页面
         [HttpGet]
         public IActionResult CreateRecruitStudents()
         {
             return View();
-        }
+        } 
+        #endregion
 
-        //处理添加招生信息请求
+        #region 处理添加招生信息请求
         [HttpPost]
         public IActionResult CreateRecruitStudents(RecruitStudents recruitStudents)
         {
@@ -379,9 +394,10 @@ namespace Web2012023015School.Controllers
             DB.SaveChanges();
             return RedirectToAction("DetailsRecruitStudents", "Admin");
 
-        }
+        } 
+        #endregion
 
-        //渲染编辑招生信息页面
+        #region 渲染编辑招生信息页面
         [HttpGet]
         public IActionResult EditRecruitStudents(int id)
         {
@@ -392,9 +408,10 @@ namespace Web2012023015School.Controllers
                 return Content("没有此记录！");
             else
                 return View(recruitStudents);
-        }
+        } 
+        #endregion
 
-        //处理编辑招生信息请求
+        #region 处理编辑招生信息请求
         [HttpPost]
         public IActionResult EditRecruitStudents(int id, RecruitStudents recruitStudents)
         {
@@ -410,9 +427,10 @@ namespace Web2012023015School.Controllers
             DB.SaveChanges();
             return RedirectToAction("DetailsRecruitStudents", "Admin");
 
-        }
+        } 
+        #endregion
 
-        // 删除招生信息
+        #region 删除招生信息
         public IActionResult DeleteRecruitStudents(int id)
         {
             var recruitStudents = DB.RecruitStudents
@@ -423,5 +441,73 @@ namespace Web2012023015School.Controllers
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsRecruitStudents", "Admin");
         }
+        #endregion
+
+        #region 创建活动
+        [HttpGet]
+        public IActionResult CreateActivities()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateActivities(Activities activities)
+        {
+            DB.Activities.Add(activities);
+            DB.SaveChanges();
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+        #endregion
+
+        #region 编辑活动
+        [HttpGet]
+        public IActionResult EditActivities(int id)
+        {
+            var activities = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+            if (activities == null)
+                return Content("没有此记录！");
+            else
+                return View(activities);
+        }
+        [HttpPost]
+        public IActionResult EditActivities(int id, Activities activities)
+        {
+            var n = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+
+            if (n == null)
+                return Content("没有该记录！");
+            n.Title = activities.Title;
+            n.Content = activities.Content;
+            n.Datatime = activities.Datatime;
+            n.Address = activities.Address;
+            DB.SaveChanges();
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+        #endregion
+
+        #region 删除活动
+        public IActionResult DeleteActivities(int id)
+        {
+            var a = DB.Activities
+                .Where(x => x.Id == id)
+                .SingleOrDefault();
+            DB.Activities.Remove(a);
+            DB.SaveChanges();
+            System.Diagnostics.Debug.Write("id=" + id);
+            return RedirectToAction("DetailsActivities", "Admin");
+        }
+        #endregion
+
+        #region 后台活动详细信息
+        public IActionResult DetailsActivities()
+        {
+            var activities = DB.Activities.ToList();
+
+            return PagedView(activities, 10);
+        } 
+        #endregion
     }
 }

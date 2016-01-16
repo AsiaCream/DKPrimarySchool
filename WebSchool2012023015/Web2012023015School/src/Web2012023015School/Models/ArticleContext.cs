@@ -16,6 +16,8 @@ namespace Web2012023015School.Models
         public DbSet<Photos> Photos { get; set; }
         public DbSet<RecruitStudents> RecruitStudents { get; set; }
         public DbSet<SchoolInfo> SchoolInfo { get; set; }
+        public DbSet<CEmail> CEmail { get; set; }
+        public DbSet<Activities> Activities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -46,6 +48,14 @@ namespace Web2012023015School.Models
 
             });
             builder.Entity<Message>(e =>
+            {
+                e.Index(x => x.Datatime);
+            });
+            builder.Entity<CEmail>(e =>
+            {
+                e.Index(x => x.Content);
+            });
+            builder.Entity<Activities>(e =>
             {
                 e.Index(x => x.Datatime);
             });

@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace Web2012023015School.Models
 {
-    public class Photos
+    public class Activities
     {
-        //校园风光
+        //校园活动
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Discription { get; set; }
-        public DateTime Datetime { get; set; }
-        public byte[] Picture { get; set; } 
+        public string Address { get; set; }
+        public DateTime Datatime { get; set; }
+        public string Content { get; set; }
         public int Priority { get; set; }
     }
 }

@@ -33,15 +33,15 @@
     <!-- Custom styles for this template -->
     
     <style type="text/css">
-        .headbanner{
-            width:100%;
-            height:100px;
-            background:url("../images/hb.jpg") top no-repeat;
+        .headbanner {
+            width: 100%;
+            height: 100px;
+            background: url("../images/hb.jpg") top no-repeat;
         }
     </style>
 </head>
 <body style="background-color:#cfc;">
-            <nav class="navbar navbar-default navbar-fixed-top">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:rgb(140,220,120);">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -61,8 +61,8 @@
                             <li><a asp-action="Article" asp-controller="Page">师生文章</a></li>
                             <li><a asp-action="RecruitStudents" asp-controller="Page">招生信息</a></li>
                             <li><a asp-action="Inform" asp-controller="Page">通知公告</a></li>
-                            <li><a asp-action="Inform" asp-controller="Page">校长信箱</a></li>
-                            <li><a asp-action="Inform" asp-controller="Page">课余活动</a></li>
+                            <li><a asp-action="CEmail" asp-controller="Page">校长信箱</a></li>
+                            <li><a asp-action="Activities" asp-controller="Page">课余活动</a></li>
                             <li><a asp-action="Message" asp-controller="Page">留言版</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">友情链接 <span class="caret"></span></a>
@@ -93,16 +93,16 @@
                 <img src="~/images/door.jpg" />
             </div>
             <div class="item">
-                <img src="~/images/blackboard.jpg"/>
+                <img src="~/images/bookbar.jpg" />
+            </div>
+            <div class="item">
+                <img src="~/images/newyear.jpg"/>
             </div>
             <div class="item">
                 <img src="~/images/playground.jpg" />
-            </div>
+            </div>         
             <div class="item">
-                <img src="~/images/door1.jpg" />
-            </div>
-            <div class="item">
-                <img src="~/images/door2.jpg" />
+                <img src="~/images/department1.jpg" />
             </div>            
         </div>
         <a href="#myCarousel" data-slide="prev" class="carousel-control left">&lsaquo;</a>
@@ -113,11 +113,11 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120)">
-                        <a href="#" style="color:rgb(0,157,0);">校园一角</a>
+                    <div class="panel-heading text-center" style="background-color:rgb(140,220,120);">
+                        <a href="#" style="color:rgb(0,157,0);">近期活动</a>
                     </div>
                     <div class="thumbnail">
-                        <a href="#"><img src="~/images/door.jpg" /></a>
+                        <a href="#"><img src="~/images/door1.jpg" /></a>
                     </div>
                 </div>
 
@@ -155,12 +155,13 @@
             <div class="row">
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
                     <div class="container-fluid">
-                        <a><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新活动</h4></a>
-                        <p><a href="#">打球</a></p>
-                        <p><a href="#">踢球</a></p>
-                        <p><a href="#">打篮球</a></p>
-                        <p><a href="#">打乒乓球</a></p>
-                        <p><a href="#">跳高</a></p>
+                        <div class="col-md-12">
+                            <a asp-action="Activities" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新活动</h4></a>
+                            @foreach (Activities x in ViewBag.activities)
+                            {
+                                <p><a asp-action="Activities" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a></p>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4" style="background-color:#fff;box-shadow:3px 3px 3px 3px #fcc;">
@@ -169,7 +170,7 @@
                             <a asp-action="Article" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新文章</h4></a>
                             @foreach (Article x in ViewBag.article)
                             {
-                                <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
+                                <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a></p>
                             }
                         </div>
                         </div>
@@ -180,7 +181,7 @@
                             <a asp-action="RecruitStudents" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(140,220,120);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:rgb(0,157,0);">最新招生信息</h4></a>
                             @foreach (RecruitStudents x in ViewBag.recruit)
                             {
-                                <p><a asp-action="RecruitStudents" asp-controller="Show" asp-route-id="@x.Id">@x.Title</a></p>
+                                <p><a asp-action="RecruitStudents" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a></p>
 
                             }
                         </div>
