@@ -10,19 +10,8 @@
     <script src="~/scripts/jquery-1.10.2.min.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
     <style>
-        .li {
-            background-color border:1px solid #333;
-            margin-bottom: 4px;
-            border-bottom: 1px dashed #333;
-        }
-
-        .title {
-            margin-bottom: 10px;
-            height: 60px;
-            font-weight: 600;
-            font-size: 2em;
-            line-height: 60px;
-            background-color: bisque;
+        .btn{
+            float:right;
         }
     </style>
     <style>
@@ -99,15 +88,15 @@
 </head>
 <body>
     <div class="navbar navbar-duomi navbar-static-top" role="navigation">
-        <div class="container-fluid">
+        <div class="container-fluid" style="height:50px;">
             <div class="navbar-header" style="display:inline-block;">
                 <span class="navbar-brand" id="logo">
                     达开实验小学后台管理
                 </span>
             </div>
-            <div style="float:right;margin-top:10px; display:inline-block;">
-                <button style="display:none;" type="button" class="btn btn-default navbar-dtn" id="pull"><i class="glyphicon glyphicon-th-list"></i>  </button>
-            </div>
+            <span style="position:absolute; top:8px; right:8px; display:inline-block;">
+                <button style="display:none; " type="button" class="btn" id="pull"><i class="glyphicon glyphicon-th-list"></i>  </button>
+            </span>
         </div>
     </div>
     <div class="container-fluid">
