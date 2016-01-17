@@ -1,0 +1,24 @@
+﻿@model Photos
+<table>
+    <tr>
+        <th>照片ID</th>
+        <th>照片标题</th>
+        <th>照片描述</th>
+        <th>录入时间</th>
+        <th>优先级</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <th>@Model.Id</th>
+        <th>@Model.Title</th>
+        <th>@Model.Discription</th>
+        <th>@Model.Datatime</th>
+        <th>@Model.Priority</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>
+            @Model.Picture
+        </td>
+    </tr>
+</table>

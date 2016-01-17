@@ -11,7 +11,7 @@ namespace Web2012023015School.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Discription { get; set; }
-        public DateTime Datetime { get; set; }
+        public DateTime Datatime { get; set; }
         public byte[] Picture { get; set; } 
         public int Priority { get; set; }
     }

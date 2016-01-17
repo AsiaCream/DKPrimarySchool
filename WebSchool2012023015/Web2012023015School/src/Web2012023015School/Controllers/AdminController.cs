@@ -239,7 +239,7 @@ namespace Web2012023015School.Controllers
         [HttpGet]
         public IActionResult DetailsPhotos()
         {
-            return PagedView(DB.Photos, 10);
+            return PagedView(DB.Photos.ToList(), 10);
         }
         //渲染添加照片页面
         [HttpGet]
@@ -254,8 +254,10 @@ namespace Web2012023015School.Controllers
         {
             var img = new Image(picture.ReadAllBytes(),Path.GetExtension(picture.GetFileName()));
             DB.Photos.Add(photos);
+            photos.Picture = img.AllBytes;
             DB.SaveChanges();
-            return File(img.AllBytes,picture.ContentType);
+            //return File(img.AllBytes,picture.ContentType);
+            return View();
 
         }
 
@@ -284,7 +286,7 @@ namespace Web2012023015School.Controllers
                 return Content("没有该记录！");
             n.Title = photos.Title;
             n.Discription = photos.Discription;
-            n.Datetime = photos.Datetime;
+            n.Datatime = photos.Datatime;
             DB.SaveChanges();
             return RedirectToAction("DetailsPhotos", "Admin");
 
@@ -300,6 +302,12 @@ namespace Web2012023015School.Controllers
             DB.SaveChanges();
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsPhotos", "Admin");
+        }
+
+        public IActionResult Photos(int id)
+        {
+            var p = DB.Photos.Where(x => x.Id == id).SingleOrDefault();
+            return View(); 
         }
 
 
