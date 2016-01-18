@@ -5,10 +5,10 @@
             <tr>
                 <th>照片ID</th>
                 <th>照片标题</th>
-                <th>照片路径</th>
                 <th>照片描述</th>
                 <th>录入时间</th>
                 <th>优先级</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -17,16 +17,16 @@
                 <tr>
                     <th>@x.Id</th>
                     <th>@x.Title</th>
-                    <th>@x.Path</th>
                     <th>@x.Discription</th>
-                    <th>@x.Datetime</th>
+                    <th>@x.Datatime</th>
                     <th>@x.Priority</th>
                     @if (User.IsSignedIn())
                 {
-                        <th>
+                        <td>
                             <a asp-action="EditPhotos" asp-controller="Admin" asp-route-id="@x.Id">修改</a>
                             <a href="javascript:remove(@x.Id)">删除</a>
-                        </th>
+                            <a asp-action="Photos" asp-controller="Admin" asp-route-id="@x.Id">查看详细</a>
+                        </td>
                     }
                 </tr>
             }
