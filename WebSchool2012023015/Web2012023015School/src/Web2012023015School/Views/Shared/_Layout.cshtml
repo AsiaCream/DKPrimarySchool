@@ -86,20 +86,20 @@
         }
     </style>
 </head>
-<body>
-    <div class="navbar navbar-duomi navbar-static-top" role="navigation">
-        <div class="container-fluid" style="height:50px;">
+<body style="background-color:#fff;">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:rgb(242,242,242);">
+        <div class="container-fluid pull-right">
             <div class="navbar-header" style="display:inline-block;">
-                <span class="navbar-brand" id="logo">
-                    达开实验小学后台管理
-                </span>
+                <a asp-action="Manage" asp-controller="Home"><span class="navbar-brand" id="logo">
+                      后台管理
+                   </span></a>
             </div>
             <span style="position:absolute; top:8px; right:8px; display:inline-block;">
                 <button style="display:none; " type="button" class="btn" id="pull"><i class="glyphicon glyphicon-th-list"></i>  </button>
             </span>
         </div>
-    </div>
-    <div class="container-fluid">
+    </nav>
+    <div style="margin-top:55px;">
         <div class="row">
             <div class="col-md-2" id="pullset" style="display:block">
                 <ul id="main-nav" class="nav nav-tabs nav-stacked" style="">
@@ -118,23 +118,23 @@
                     <li>
                         <a href="#set1" class="nav-header collapsed" data-toggle="collapse">
                             <i class="glyphicon glyphicon-leaf"></i>
-                            新闻
+                            校园新闻
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul id="set1" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsNews" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理新闻</a></li>
-                            <li><a asp-action="CreateNews" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加新闻</a></li>
+                            <li><a asp-action="CreateNews" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加新闻</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#set2" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-fire"></i>
+                            <i class="glyphicon glyphicon-list-alt"></i>
                             师生文章
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul id="set2" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsArticle" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理文章</a></li>
-                            <li><a asp-action="CreateArticle" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加文章</a></li>
+                            <li><a asp-action="CreateArticle" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加文章</a></li>
                         </ul>
                     </li>
                     <li>
@@ -145,29 +145,29 @@
                         </a>
                         <ul id="set3" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsInform" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理通知公告</a></li>
-                            <li><a asp-action="CreateInform" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加通知公告</a></li>
+                            <li><a asp-action="CreateInform" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加通知公告</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#set4" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-certificate"></i>
+                            <i class="glyphicon glyphicon-camera"></i>
                             校园风光
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul id="set4" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsPhotos" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理校园风光</a></li>
-                            <li><a asp-action="CreatePhotos" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加校园风光</a></li>
+                            <li><a asp-action="CreatePhotos" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加校园风光</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#set5" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-heart-empty"></i>
+                            <i class="glyphicon glyphicon-usd"></i>
                             招生信息
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul id="set5" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsRecruitStudents" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理招生信息</a></li>
-                            <li><a asp-action="CreateRecruitStudents" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加招生信息</a></li>
+                            <li><a asp-action="CreateRecruitStudents" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加招生信息</a></li>
                         </ul>
                     </li>
                     <li>
@@ -178,7 +178,7 @@
                         </a>
                         <ul id="set6" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsSchoolInfo" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理学校信息</a></li>
-                            <li><a asp-action="CreateSchoolInfo" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加学校信息</a></li>
+                            <li><a asp-action="CreateSchoolInfo" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加学校信息</a></li>
                         </ul>
                     </li>
                     <li>
@@ -193,7 +193,7 @@
                     </li>
                     <li>
                         <a href="#set8" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-tree-conifer"></i>
+                            <i class="glyphicon glyphicon-envelope"></i>
                             校长信箱
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
@@ -203,18 +203,18 @@
                     </li>
                     <li>
                         <a href="#set9" class="nav-header collapsed" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-cutlery"></i>
+                            <i class="glyphicon glyphicon-headphones"></i>
                             课余活动
                             <span class="pull-right glyphicon glyphicon-chevron-down"></span>
                         </a>
                         <ul id="set9" class="nav nav-list collapse secondmenu" style="height: 0px;">
                             <li><a asp-action="DetailsActivities" asp-controller="Admin"><i class="glyphicon glyphicon-cog"></i>管理课余活动</a></li>
-                            <li><a asp-action="CreateActivities" asp-controller="Admin"><i class="glyphicon glyphicon-wrench"></i>添加课余活动</a></li>
+                            <li><a asp-action="CreateActivities" asp-controller="Admin"><i class="glyphicon glyphicon-plus"></i>添加课余活动</a></li>
                         </ul>
                     </li>
                     <li>
                         <a asp-action="Login" asp-controller="Account">
-                            <i class="glyphicon glyphicon-hand-right"></i>
+                            <i class="glyphicon glyphicon-off"></i>
                             退出后台
                         </a>
                     </li>
@@ -222,7 +222,7 @@
             </div>
             <div class="col-md-10">
 
-                @RenderBody()
+                    @RenderBody()
 
             </div>
         </div>

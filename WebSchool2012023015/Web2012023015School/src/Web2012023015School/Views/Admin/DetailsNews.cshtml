@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<News>
-<div class="container">
+<h3>新闻管理页面</h3>
     <a asp-action="CreateNews" asp-controller="Admin"><h5>快速添加新闻</h5></a>
     <table class="table table-hover">
         <thead>
@@ -35,9 +35,8 @@
 
         </tbody>
     </table>
-</div>
     @Html.MakePager("pager-item", "active", "pager")
-    @*@if (User.IsSignedIn())
+    @if (User.IsSignedIn())
     {
         <form id="frmDelete" asp-aciton="DeleteNews" asp-controller="Admin" method="post">
             <input type="hidden" id="Id" name="id" />
@@ -54,4 +53,4 @@
             }
         </script>
 
-    }*@
+    }
