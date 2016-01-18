@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Activities>
-<div class="container">
+<h3>课余活动管理页面</h3>
     <a asp-action="CreateActivities" asp-controller="Admin"><h5>快速添加活动</h5></a>
     <table class="table table-hover">
         <thead>
@@ -34,5 +34,5 @@
             }
         </tbody>
     </table>
-</div>
+
 @Html.MakePager("pager-item", "active", "pager")

@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<Inform>
-<div class="container">
+<h3>通知管理页面</h3>
     <a asp-action="CreateInform" asp-controller="Admin"><h5>快速添加通知</h5></a>
     <table class="table table-hover">
         <thead>
@@ -28,7 +28,7 @@
             }
         </tbody>
     </table>
-</div>
+
 @Html.MakePager("pager-item", "active", "pager")
 @if (User.IsSignedIn())
 {
