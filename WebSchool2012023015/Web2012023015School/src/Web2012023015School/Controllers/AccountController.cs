@@ -18,12 +18,14 @@ namespace Web2012023015School.Controllers
 
         //登录
         [HttpGet]
+        [GuestOnly]
         public IActionResult Login()
         {
             return View();
         }
-
+      
         [HttpPost]
+        [GuestOnly]
         public async Task<IActionResult>Login(string username, string password)
         {
             var result = await signInManager.PasswordSignInAsync(username, password, false, false);
