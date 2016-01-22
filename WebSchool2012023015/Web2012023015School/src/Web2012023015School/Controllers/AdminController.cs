@@ -446,7 +446,6 @@ namespace Web2012023015School.Controllers
                 .SingleOrDefault();
             DB.RecruitStudents.Remove(recruitStudents);
             DB.SaveChanges();
-            System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsRecruitStudents", "Admin");
         }
         #endregion

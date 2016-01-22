@@ -43,35 +43,34 @@
     </div>
 
     <div class="container">
-        <form asp-action="CreateMessage" asp-controller="Home" method="post">
+        <form asp-action="CreateMessage" asp-controller="Home" method="post" id="frmcreatemessage">
             <table class="table" style="background-color:#888;border-radius:8px;">
                 <tr>
                     <th style="color:#333;">昵称：</th>
-                    <td><input type="text" name="NickName" id="NickName" placeholder="昵称不能为空" style="border-radius:8px;" /></td>
+                    <td><input type="text" name="NickName" id="NickNameId" placeholder="昵称不能为空" style="border-radius:8px;" /></td>
                 </tr>
                 <tr>
                     <th style="color:#333;">留言：</th>
                     <td><textarea id="ContentId" placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;resize:none;border-radius:8px;"></textarea></td>
                 </tr>
             </table>
-            <p><input type="submit" class="btn" id="btnCreateMessage" value="留言" /></p>
+            <p><a href="javascript:addition()" class="btn btn-primary btn-success">留言</a></p>
         </form>
     </div>
 </div>
-
-
-@*<script type="text/javascript">
-    var oName = document.getElementById("NickName");
-    var oContent = document.getElementById("ContentId");
-    var oBtn = document.getElementById("btnCreateMessage");
-
-    oBtn.onclick = function () {
-        if (oName.value == null || oContent.value == null) {
-            alert("内容或昵称为空，请填写。");
-
+<script type="text/javascript">
+    
+    function addition() {
+        var NickName = eval(document.getElementById('NickNameId')).value;
+        var Content = eval(document.getElementById('ContentId')).value;
+        if (NickName == '' || Content == ''){
+            alert("请检查昵称或者留言内容是否为空");
         }
-
-    };
-</script>*@
+        else {
+            alert("提交成功，请等待管理员审核通过后即可显示");
+            frmcreatemessage.submit();
+        }
+    }
+</script>
 
 

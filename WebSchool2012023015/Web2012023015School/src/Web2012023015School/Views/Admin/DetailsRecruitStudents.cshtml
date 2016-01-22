@@ -20,6 +20,7 @@
                         <th>
                             <a asp-action="EditRecruitStudents" asp-controller="Admin" asp-route-id="@x.Id">修改</a>
                             <a href="javascript:remove(@x.Id)">删除</a>
+                            @*<a asp-action="DeleteRecruitStudents" asp-controller="Admin" asp-route-id="@x.Id">删除</a>*@
                         </th>
                     }
                 </tr>
@@ -30,14 +31,14 @@
     @Html.MakePager("pager-item", "active", "pager")
     @if (User.IsSignedIn())
     {
-        <form id="frmDelete" asp-aciton="DeleteRecruitStudents" asp-controller="Admin" method="post">
-            <input type="hidden" id="Id" name="id" />
+        <form asp-aciton="DeleteRecruitStudents" asp-controller="Admin" method="post" id="frmDelete">
+            <input type="hidden" id="frmId" name="Id" />
         </form>
         <script>
-            function remove(id) {
+            function remove(Id) {
                 var jug = confirm("确认删除？");
                 if (jug == true) {
-                    $('#Id').val(id);
+                    $('#frmId').val(Id);
                     $('#frmDelete').submit();
                 }
             }

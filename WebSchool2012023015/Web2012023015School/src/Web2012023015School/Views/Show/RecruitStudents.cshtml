@@ -24,7 +24,7 @@
                 @foreach (RecruitStudents others in ViewBag.others)
             {
                     <div class="panel-body">
-                        <a asp-action="Inform" asp-controller="Show" asp-route-id="@others.Id" style="text-decoration:none;">@others.Title</a><small class="pull-right text-muted"></small>
+                        <a asp-action="RecruitStudents" asp-controller="Show" asp-route-id="@others.Id" style="text-decoration:none;">@others.Title</a><small class="pull-right text-muted"></small>
                     </div>
                 }
             </div>
