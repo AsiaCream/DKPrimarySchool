@@ -26,7 +26,7 @@
                             @if (x.State == State.通过)
                             {
                                 <div class="col-md-3 col-sm-5 col-xs-5">
-                                    <img src="~/images/person.png" alt="加载Ing" />
+                                    <img src="~/images/person.png" class="img-responsive" alt="加载失败"/>
                                     <p>访客昵称：@x.NickName</p>
                                 </div>
                                 <div class="col-md-9 col-sm-7 col-xs-7" style="height:180px;">
@@ -42,16 +42,16 @@
         @Html.MakePager("pager-item", "active", "pager")
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         <form asp-action="CreateMessage" asp-controller="Home" method="post" id="frmcreatemessage">
-            <table class="table" style="background-color:#888;border-radius:8px;">
+            <table class="table" style="background-color:rgb(101,172,76);border-radius:8px;">
                 <tr>
                     <th style="color:#333;">昵称：</th>
-                    <td><input type="text" name="NickName" id="NickNameId" placeholder="昵称不能为空" style="border-radius:8px;" /></td>
+                    <td><input type="text" name="NickName" id="NickNameId" placeholder="昵称不能为空" style="border-radius:6px;" /></td>
                 </tr>
                 <tr>
                     <th style="color:#333;">留言：</th>
-                    <td><textarea id="ContentId" placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;resize:none;border-radius:8px;"></textarea></td>
+                    <td><textarea id="ContentId" placeholder="请输入内容,提交后待管理员审核后即可在页面中显示" name="Content" style="width:100%;height:80px;resize:none;border-radius:6px;"></textarea></td>
                 </tr>
             </table>
             <p><a href="javascript:addition()" class="btn btn-primary btn-success">留言</a></p>
