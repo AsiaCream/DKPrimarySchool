@@ -34,21 +34,21 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="latestnews">
-                            @foreach (News latesnews in ViewBag.latestnews)
-                            {
-                                <a asp-action="News" asp-controller="Show" asp-route-id="@latesnews.Id"><p>@latesnews.Title</p></a>
-                            }
+                                                        @foreach (News latesnews in ViewBag.latestnews)
+                                                        {
+                                                            <p><a asp-action="News" asp-controller="Show" asp-route-id="@latesnews.Id">@latesnews.Title</a><small class="pull-right text-muted">@latesnews.Datatime</small></p>
+                                                        }
                         </div>
                         <div class="tab-pane fade" id="hotnews">
                             @foreach (News hotnews in ViewBag.hotnews)
             {
-                                <a asp-action="News" asp-controller="Show" asp-route-id="@hotnews.Id"><p>@hotnews.Title</p></a>
+                                <p><a asp-action="News" asp-controller="Show" asp-route-id="@hotnews.Id">@hotnews.Title</a><small class="pull-right text-muted">@hotnews.Datatime</small></p>
                             }
                         </div>
                         <div class="tab-pane fade" id="recommendednews">
                             @foreach (News recommendednews in ViewBag.recommendednews)
             {
-                                <a asp-action="News" asp-controller="Show" asp-route-id="@recommendednews.Id"><p>@recommendednews.Title</p></a>
+                                <p><a asp-action="News" asp-controller="Show" asp-route-id="@recommendednews.Id">@recommendednews.Title</a><small class="pull-right text-muted">@recommendednews.Datatime</small></p>
                             }
                         </div>
                     </div>

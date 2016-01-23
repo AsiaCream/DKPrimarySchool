@@ -172,7 +172,7 @@
                             <a asp-action="Article" asp-controller="Page"><h4 class="text-center" style="background-color:rgb(18,180,90);padding:2px;box-shadow:3px 3px 3px 3px #fcc;color:#fff;">最新文章</h4></a>
                             @foreach (Article x in ViewBag.article)
                             {
-                                <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a></p>
+                                <p><a asp-action="Article" asp-controller="Show" asp-route-id="@x.Id" style="color:#000000;">@x.Title</a><small class="pull-right text-muted">@x.Author</small></p>
                             }
                         </div>
                         </div>
@@ -196,7 +196,7 @@
         
     <div class="col-md-12">
         <footer class="text-center" style="background-color:rgb(18,180,90);height:50px;">
-            <div style="line-height:50px;">&copy;CopyRight By 2012023015.<a asp-action="Login" asp-controller="Account">后台登陆管理</a></div>
+            <div style="line-height:50px;">&copy;CopyRight By 2012023015.&middot;<a asp-action="Login" asp-controller="Account">后台登陆管理</a></div>
         </footer>
     </div>
    <script type="text/javascript">

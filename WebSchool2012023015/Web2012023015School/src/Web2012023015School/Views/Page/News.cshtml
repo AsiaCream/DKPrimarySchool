@@ -20,15 +20,13 @@
                         <div class="row info-content" >                                       
                             @foreach (var x in Model)
                             {
-                                    @*<div class="list-group">
-                                        <div class="list-group-item">*@
+                                  
                                             <div style="height:15px;background-color:#fff;"></div>
                                             <h4 style="margin:10px 0 0 10px;"><a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;color:rgb(95,142,70);font-family:微软雅黑;">@x.Title</a></h4>
                                             <p class="text-muted"> <small style="margin:0 0 0 10px;">发布时间：@x.Datatime</small><small class="pull-right" style="margin-right:10px;">浏览量：<span class="badge">99+</span></small></p>
-                                            <p style="margin:0 0 15px 10px;">@x.Content</p>
+                                            <p style="margin:0 0 15px 10px;" limit="220">@x.Content</p>
                                             
-                                        @*</div>
-                                    </div>*@
+                                     
                                      }
                         </div>
                         @Html.MakePager("pager-item", "active", "pager")
@@ -40,10 +38,10 @@
                     <div class="panel-heading" style="background-color:rgb(95,124,50);">
                         <h3 class="panel-title">推荐新闻</h3>
                     </div>
-                    @foreach (var recommendednews in ViewBag.recommendednews)
+                    @foreach (News recommendednews in ViewBag.recommendednews)
             {
                         <div class="panel-body">
-                            <a asp-action="News" asp-controller="Show" asp-route-id="@recommendednews.Id" style="text-decoration:none;color:rgb(95,142,70);">@recommendednews.Title</a>
+                            <a asp-action="News" asp-controller="Show" asp-route-id="@recommendednews.Id" style="text-decoration:none;color:rgb(95,142,70);">@recommendednews.Title</a><small class="pull-right text-muted">@recommendednews.Datatime</small>
                         </div>
                     }
                 </div>
@@ -51,5 +49,22 @@
         </div>
     </div>
 </div>
+<script>
+    jQuery.fn.limit = function () {
+        var self = $("[limit]");
+        self.each(function () {
+            var objString = $(this).text();
+            var objLength = $(this).text().length;
+            var num = $(this).attr("limit");
+            if (objLength > num) {
+                //$(this).attr("title", objString);
+                objString = $(this).text(objString.substring(0, num) + "......【点击标题查看详细内容】");
+            }
+        })
+    }
+    $(function () {
+        $("[limit]").limit();
+    })
+</script>
 
 
