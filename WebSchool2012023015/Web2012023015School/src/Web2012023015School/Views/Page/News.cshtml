@@ -17,17 +17,14 @@
         <div class="row">
             <div class="col-md-8">
                     <div class="container-fluid">
-                        <div class="row info-content" >                                       
+                        <div class="row info-content">                                       
                             @foreach (var x in Model)
-                            {
-                                  
+                            {     
                                             <div style="height:15px;background-color:#fff;"></div>
                                             <h4 style="margin:10px 0 0 10px;"><a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;color:rgb(95,142,70);font-family:微软雅黑;">@x.Title</a></h4>
                                             <p class="text-muted"> <small style="margin:0 0 0 10px;">发布时间：@x.Datatime</small><small class="pull-right" style="margin-right:10px;">浏览量：<span class="badge">99+</span></small></p>
-                                            <p style="margin:0 0 15px 10px;" limit="220">@x.Content</p>
-                                            
-                                     
-                                     }
+                                            @*<p style="margin:0 0px 15px 10px;">@Html.Raw(x.Content)</p>*@
+                            }
                         </div>
                         @Html.MakePager("pager-item", "active", "pager")
                     </div>
@@ -49,7 +46,7 @@
         </div>
     </div>
 </div>
-<script>
+@*<script>
     jQuery.fn.limit = function () {
         var self = $("[limit]");
         self.each(function () {
@@ -65,6 +62,6 @@
     $(function () {
         $("[limit]").limit();
     })
-</script>
+</script>*@
 
 
