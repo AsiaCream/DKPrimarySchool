@@ -9,8 +9,11 @@
             </tr>
             <tr>
                 <th>新闻内容</th>
-                <td><textarea class="form-control" rows="3" name="Content">@Model.Content</textarea></td>
-            </tr>
+                <td>
+                    <script id="editor" type="text/plain" name="Content" style="width:1000px;">
+                        @Html.Raw(Model.Content)
+                    </script>
+                </td> 
             <tr>
                 <th class="row-title">新闻来源</th>
                 <td>
@@ -36,3 +39,11 @@
         </p>
 </div>
 </form>
+<script src="~/scripts/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="~/scripts/ueditor.config.js"></script>
+<script type="text/javascript" src="~/scripts/ueditor.all.js"></script>
+<script type="text/javascript" src="~/scripts/zh-cn.js"></script>
+<link rel="stylesheet" href="~/styles/default/css/ueditor.css" />
+<script type="text/javascript">
+        var ue = UE.getEditor('editor');
+</script>

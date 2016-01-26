@@ -93,9 +93,10 @@ namespace Web2012023015School.Controllers
 
         #region 新闻详细
         [HttpGet]
-        public IActionResult DetailsNews(int id)
+        public IActionResult DetailsNews()
         {
-            return PagedView(DB.News, 10);
+            var news = DB.News.OrderByDescending(x => x.Datatime).ToList();
+            return PagedView(news, 10);
         }
         #endregion
        
@@ -107,6 +108,7 @@ namespace Web2012023015School.Controllers
         }
 
         //处理添加新闻请求
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult CreateNews(News news)
         {

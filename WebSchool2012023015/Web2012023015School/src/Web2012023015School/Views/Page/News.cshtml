@@ -21,9 +21,12 @@
                             @foreach (var x in Model)
                             {     
                                             <div style="height:15px;background-color:#fff;"></div>
-                                            <h4 style="margin:10px 0 0 10px;"><a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;color:rgb(95,142,70);font-family:微软雅黑;">@x.Title</a></h4>
-                                            <p class="text-muted"> <small style="margin:0 0 0 10px;">发布时间：@x.Datatime</small><small class="pull-right" style="margin-right:10px;">浏览量：<span class="badge">99+</span></small></p>
+                                            <h4 style="margin:10px 0 0 15px;"><a asp-action="News" asp-controller="Show" asp-route-id="@x.Id" style="text-decoration:none;color:rgb(95,142,70);font-family:微软雅黑;">@x.Title</a></h4>
+                                            <p class="text-muted"> <small style="margin:0 0 0 15px;">发布时间：@x.Datatime</small><small class="pull-right" style="margin-right:10px;">浏览量：<span class="badge">99+</span></small></p>
                                             @*<p style="margin:0 0px 15px 10px;">@Html.Raw(x.Content)</p>*@
+                                <div class="panel-body" style="margin-top:-35px;margin-bottom:-10px;">
+                                    <p style="margin:0 0px 15px 10px;">@Html.Raw(x.Content)</p>
+                                </div>
                             }
                         </div>
                         @Html.MakePager("pager-item", "active", "pager")
