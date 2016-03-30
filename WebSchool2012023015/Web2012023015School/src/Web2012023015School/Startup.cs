@@ -40,7 +40,7 @@ namespace Web2012023015School
         public async void Configure(IApplicationBuilder app, ILoggerFactory logger)
         {
             app.UseStaticFiles();
-
+            logger.AddDebug();
             logger.AddConsole();
 
             logger.MinimumLevel = LogLevel.Warning;

@@ -8,6 +8,7 @@ using Web2012023015School.Models;
 using Microsoft.AspNet.Authorization;
 using CodeComb.Media;
 using System.IO;
+using System.Text;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,8 +17,7 @@ namespace Web2012023015School.Controllers
     [Authorize]
     public class AdminController : BaseController
     {
-        [FromServices]
-        public ArticleContext DB { get; set; }
+        
         //文章，新闻，....管理模块
 
         #region 后台通知公告详细
@@ -252,14 +252,28 @@ namespace Web2012023015School.Controllers
 
         //处理添加照片请求
         [HttpPost]
-        public IActionResult CreatePhotos(IFormFile picture,Photos photos)
+        public IActionResult CreatePhotos(IFormFile file, Photos photos)
         {
-            var img = new Image(picture.ReadAllBytes(),Path.GetExtension(picture.GetFileName()));
+            //先将我们前台传过来的文件获取,file.ReadAllBytes()，然后再获取文件名 file.GetFileName()
+            var img = new Image(file.ReadAllBytes(), file.GetFileName());
+            //将文件另存为到Upload文件夹并且以提交时间保存文件名，
+            //为了避免文件名保存重复出错，所以用时间，保存为png结尾
+            img.SaveAs(".\\Upload\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
             DB.Photos.Add(photos);
-            photos.Picture = img.AllBytes;
+            //将前台传过来的Photes对象接收，也就是photos
+            //然后从对应的CreatePhotos视图中可以看出，只有3个字段是传过来的
+            //分别是title,description，priority,而我们Photos对应五个字段，如果直接保存，就提示字段不能为空的错误
+            //另外两个字段分别是DATATIME以及Path
+            //所以，我们得把DATATIME和Path保存了
+            //下边是将文件保存的路径，具体到文件的结尾
+            photos.Path= (".\\Upload\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
+            //再保存时间
+            photos.Datatime = DateTime.Now;
+            //最后保存数据库，大功告成
             DB.SaveChanges();
-            //return File(img.AllBytes,picture.ContentType);
-            return View();
+            //photos.File = img.AllBytes; 这是将图片以二进制保存到到file中
+            //return File(img.AllBytes, file.ContentType); 返回文件类型，就是直接返回刚刚保存的图片
+            return Content("success");
 
         }
 
@@ -305,11 +319,11 @@ namespace Web2012023015School.Controllers
             System.Diagnostics.Debug.Write("id=" + id);
             return RedirectToAction("DetailsPhotos", "Admin");
         }
-
+        [HttpGet]
         public IActionResult Photos(int id)
         {
             var p = DB.Photos.Where(x => x.Id == id).SingleOrDefault();
-            return View(); 
+            return View(p); 
         }
 
 

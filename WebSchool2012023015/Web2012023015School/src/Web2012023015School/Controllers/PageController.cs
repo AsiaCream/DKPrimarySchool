@@ -13,8 +13,7 @@ namespace Web2012023015School.Controllers
     public class PageController : BaseController
     {
         // GET: /<controller>/
-        [FromServices]
-        public ArticleContext DB { get; set; }
+        
         [HttpGet]
         public IActionResult News()
         {

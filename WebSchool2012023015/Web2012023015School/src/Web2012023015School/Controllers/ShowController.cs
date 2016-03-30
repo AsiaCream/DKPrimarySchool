@@ -9,9 +9,7 @@ namespace Web2012023015School.Controllers
 {
     public class ShowController : BaseController
     {
-        [FromServices]
-        public ArticleContext DB { get; set; }
-        // GET: /<controller>/
+        
         public IActionResult Article(int id)
         {
             var article = DB.Article.Where(x=>x.Id==id).SingleOrDefault();
