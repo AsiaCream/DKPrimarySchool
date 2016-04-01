@@ -255,19 +255,19 @@ namespace Web2012023015School.Controllers
         public IActionResult CreatePhotos(IFormFile file, Photos photos)
         {
             //先将我们前台传过来的文件获取,file.ReadAllBytes()，然后再获取文件名 file.GetFileName()
-            var img = new Image(file.ReadAllBytes(), file.GetFileName());
+            //var img = new Image(file.ReadAllBytes(), file.GetFileName());
             //将文件另存为到Upload文件夹并且以提交时间保存文件名，
             //为了避免文件名保存重复出错，所以用时间，保存为png结尾
-            img.SaveAs(".\\Upload\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
-            DB.Photos.Add(photos);
             //将前台传过来的Photes对象接收，也就是photos
             //然后从对应的CreatePhotos视图中可以看出，只有3个字段是传过来的
             //分别是title,description，priority,而我们Photos对应五个字段，如果直接保存，就提示字段不能为空的错误
             //另外两个字段分别是DATATIME以及Path
             //所以，我们得把DATATIME和Path保存了
             //下边是将文件保存的路径，具体到文件的结尾
-            photos.Path= (".\\Upload\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".png");
             //再保存时间
+            file.SaveAs(".\\wwwroot\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".jpg");
+            photos.Path = (DateTime.Now.ToString("yyMMddhhmmss") + ".jpg");
+            DB.Photos.Add(photos);
             photos.Datatime = DateTime.Now;
             //最后保存数据库，大功告成
             DB.SaveChanges();
@@ -316,8 +316,7 @@ namespace Web2012023015School.Controllers
                 .SingleOrDefault();
             DB.Photos.Remove(photos);
             DB.SaveChanges();
-            System.Diagnostics.Debug.Write("id=" + id);
-            return RedirectToAction("DetailsPhotos", "Admin");
+            return Content("success");
         }
         [HttpGet]
         public IActionResult Photos(int id)

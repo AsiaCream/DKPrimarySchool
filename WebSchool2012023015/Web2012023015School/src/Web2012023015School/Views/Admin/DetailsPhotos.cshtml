@@ -15,7 +15,7 @@
         <tbody>
             @foreach (var x in Model)
             {
-                <tr>
+                <tr id="table-tr">
                     <th>@x.Id</th>
                     <th>@x.Title</th>
                     <th>@x.Discription</th>
@@ -37,15 +37,26 @@
     @Html.MakePager("pager-item", "active", "pager")
     @if (User.IsSignedIn())
     {
-        <form id="frmDelete" asp-aciton="DeletePhotos" asp-controller="Admin" method="post">
-            <input type="hidden" id="Id" name="id" />
-        </form>
-        <script>
+        <script src="~/scripts/jquery-2.1.1.js"></script>
+        <script type="text/javascript">
             function remove(id) {
                 var jug = confirm("确认删除？");
                 if (jug == true) {
-                    $('#Id').val(id);
-                    $('#frmDelete').submit();
+                    $(function () {
+                        var url = "/Admin/DeletePhotos";
+                        var params = { "id": id };
+                        $.post(url, params, function (data) {
+                            if (data == "success") {
+                                $("#table-tr").remove();
+                                alert("删除成功");
+
+                            }
+                            else {
+                                alert("删除失败");
+                            }
+
+                        });
+                    });
                 }
             }
         </script>
