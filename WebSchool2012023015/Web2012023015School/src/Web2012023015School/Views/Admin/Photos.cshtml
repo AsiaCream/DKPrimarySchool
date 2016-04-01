@@ -1,5 +1,5 @@
 ﻿@model Photos
-<table>
+<table class="table">
     <tr>
         <th>照片ID</th>
         <th>照片标题</th>
@@ -9,12 +9,12 @@
         <th>操作</th>
     </tr>
     <tr>
-        <th>@Model.Id</th>
-        <th>@Model.Title</th>
-        <th>@Model.Discription</th>
-        <th>@Model.Datatime</th>
-        <th>@Model.Priority</th>
-        <th>操作</th>
+        <td>@Model.Id</td>
+        <td>@Model.Title</td>
+        <td>@Model.Discription</td>
+        <td>@Model.Datatime</td>
+        <td>@Model.Priority</td>
+        <td>操作</td>
     </tr>
     <tr>
         <td>
@@ -22,5 +22,7 @@
         </td>
     </tr>
 </table>
-<img src="~/@Model.Path" alt="..." />
+<p>图片1</p>
+<img src="~/upload/@Model.Path" alt="..." />
+
 

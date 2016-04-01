@@ -254,6 +254,7 @@ namespace Web2012023015School.Controllers
         [HttpPost]
         public IActionResult CreatePhotos(IFormFile file, Photos photos)
         {
+
             //先将我们前台传过来的文件获取,file.ReadAllBytes()，然后再获取文件名 file.GetFileName()
             //var img = new Image(file.ReadAllBytes(), file.GetFileName());
             //将文件另存为到Upload文件夹并且以提交时间保存文件名，
@@ -265,7 +266,9 @@ namespace Web2012023015School.Controllers
             //所以，我们得把DATATIME和Path保存了
             //下边是将文件保存的路径，具体到文件的结尾
             //再保存时间
-            file.SaveAs(".\\wwwroot\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".jpg");
+            if (!Directory.Exists(".\\wwwroot\\upload\\a"))//判断是否存在a文件夹
+            { Directory.CreateDirectory(".\\wwwroot\\upload\\a"); }//如果不存在就在upload下创建a文件夹
+            file.SaveAs(".\\wwwroot\\upload\\" + DateTime.Now.ToString("yyMMddhhmmss") + ".jpg");
             photos.Path = (DateTime.Now.ToString("yyMMddhhmmss") + ".jpg");
             DB.Photos.Add(photos);
             photos.Datatime = DateTime.Now;
